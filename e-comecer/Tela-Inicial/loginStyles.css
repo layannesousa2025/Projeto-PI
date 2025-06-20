@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    /*Definido o tipo da fonte da pagina*/
+    padding: 0;
+    /*definido a cor da pagina*/
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(40, 45, 85);
+    /* define a cor da pagina*/
+    display: flex;
+    /* define o layout flexivel para cetralizar o conteudo*/
+    justify-content: center;
+    /* alinha o conteudo ao centro horizontalmente*/
+    align-items: center;
+    /* alinha o conteudo ao centro verticalmente*/
+    height: 100vh;
+    /* define a altura da pagina como 100% da altura da janela de visualizaçao*/
+
+}
+
+.login {
+    background-color: white;
+    /*definir a cor do fundo do container de login*/
+    padding: 30px;
+    /* definir o preenchimento interno do container*/
+    border-radius: 8px;
+    /*definir as bordas arrendondada do container de login*/
+    width: 300px;
+    /*definir a lagura container de login*/
+     text-align: center; 
+    /*define o texto dentro container de login*/
+}
+
+h1 {
+    margin-bottom: 20px; /*adcionar espaço baixo */
+    color: rgb(57, 143, 55);/*adicionar espaço abaixo de cada grupo do formulario*/
+}
+
+.form-name {
+    margin-bottom: 15px;
+    /*adicionar espaço abaixo de cada grupo do formulario*/
+    text-align: left;
+    /*alinha o texto a esqueda*/
+    
+}
+.form-senha{
+    margin-bottom: 15px;
+    /*adicionar espaço abaixo de cada grupo do formulario*/
+    text-align: left;
+    /*alinha o texto a esqueda*/
+}
+
+label{
+    display: block;
+    /*jogar um embaixo do outro*/
+    margin-bottom: 5px;
+    /*adicionar espaço abaixo de cada grupo do formulario*/
+    color:rgb(73, 69, 69);
+}
+
+/* input[type="checkbox"]{ 
+    margin-left: 5px;
+    
+}
+*/
+
+a{
+    display: block;
+    color: rgb(82, 82, 230);
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+a:hover{
+    text-decoration: underline;
+    /*quando passa o mouse encima da letra criar uma linha*/
+    color: black;
+}
+
+button{
+    
+    width: 70%;
+    /*tamanhao do butao*/
+    height: 30px;
+    /*lagura*/
+    border-radius: 8px;
+    /*as bordas redondas*/
+    border:none;
+    /*serve para tira as bordas do butao*/
+    background-color: rgb(152, 224, 138);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    /*passa o mouse */
+   
+    
+}
+
+button[type="reset"]{
+    background-color: rgb(221, 95, 95);
+    margin-top: 10px;
+}
+
+button:hover{
+    opacity: 0.9;
+}
+
+.checkbox-lembra-senha{
+    width: 100px;
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+input[type="text"],[type="password"]{
+    width: 100%;
+    padding: 2px;
+    border-radius: 1px solid  rgb(107, 103, 103); 
+    font-size: 18px;
+}
