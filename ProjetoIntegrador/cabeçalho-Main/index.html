@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champions Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <!-- Top Header -->
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="logo">
+                        <span class="logo-text">Champions <span class="logo-store">Store</span></span>
+                    </div>
+                    
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="o que você está procurando">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <a href="#" class="wishlist-link">
+                            <i class="far fa-heart"></i>
+                            <span>Lista de desejos</span>
+                        </a>
+                        <button class="login-btn">
+                            <i class="fas fa-user"></i>
+                            <span>Entra</span>
+                        </button>
+                        <button class="cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Promotional Banner -->
+        <div class="promo-banner">
+            <div class="container">
+                <p>+10% off na primeira compra, usando o cupom Primeira10</p>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="location-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>informe seu cep</span>
+                    </div>
+                    
+                    <div class="categories-menu">
+                        <i class="fas fa-bars"></i>
+                        <span>todas as categorias</span>
+                    </div>
+                    
+                    <ul class="nav-links">
+                        <li><a href="#">Corrida</a></li>
+                        <li><a href="#">Futebol</a></li>
+                        <li><a href="#">sportstyle</a></li>
+                        <li><a href="#">cupons</a></li>
+                        <li><a href="#">lojas parceiras</a></li>
+                        <li><a href="#">outlet</a></li>
+                    </ul>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <span>Menu</span>
+                <button class="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="#">todas as categorias</a></li>
+                <li><a href="#">Corrida</a></li>
+                <li><a href="#">Futebol</a></li>
+                <li><a href="#">sportstyle</a></li>
+                <li><a href="#">cupons</a></li>
+                <li><a href="#">lojas parceiras</a></li>
+                <li><a href="#">outlet</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

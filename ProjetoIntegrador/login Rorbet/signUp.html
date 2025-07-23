@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex60</title>
+    <link rel="stylesheet" href="../style/login/signUp.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+<script src="../Scripts/signUp.js" defer></script>
+
+   
+    
+
+</head>
+<body id="vanja-bg">
+    
+
+    <form action="" id="myForm">
+        <div class="title">
+            <h1>Sign In</h1>
+            <img src="../Assets/LoginAssets/champions (2).png" alt="logo">
+        </div>
+       
+        <label for="username">Username*</label>
+        <input type="text" id="username" placeholder="Digite seu usuario">
+        <label for="email">Email*</label>
+        <input type="text" id="email" name="email" placeholder="Seu email" required>
+        <label for="cpf">CPF*</label>
+        <input type="text" id="cpf" name="cpf" placeholder="Seu CPF" pattern="\d{11}" maxlength="14" required>
+        <label for="password">Password*</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" required maxlength="4">
+               <div class="lembrar">
+                
+                <label for="terms">Aceito os termos *</label>
+                <input type="checkbox"id="terms" required>
+               </div>
+               <div class="btnClass">
+                <button id="btn" type="submit">Cadastrar</button>
+              </div>
+
+               <div class="btnClass">
+                <button id="btnGoogle"  type="submit">Continue com Google
+
+                    <img id="logoGoogle" src="../Assets/LoginAssets/icons8-google-logo.svg" alt="">
+                </button>
+               </div>
+              
+           </form>
+</body>
+</html>

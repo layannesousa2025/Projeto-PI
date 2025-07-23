@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../style/login/login.css">
+    <script src="../scripts/ex61.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="../Scripts/login.js" defer></script>
+
+
+
+
+</head>
+
+<body id="vanja-bg">
+    
+
+    <form action="" id="myForm">
+        <div class="title">
+            <h1>Login</h1>
+            <img src="../Assets/LoginAssets/champions (2).png" alt="logo">
+        </div>
+
+        <label for="num1">Nome</label>
+        <input type="text" id="login" placeholder="Digite seu login" required>
+        <label for="num1">Senha</label>
+        <input type="password" id="password" placeholder="Digite sua senha" required maxlength="4">
+        <div class="lembrar">
+            <label for="">Lembrar-me</label>
+            <input type="checkbox">
+        </div>
+        <div class="btnClass">
+            <button id="btn" type="submit">Fazer o login</button>
+        </div>
+        
+        <button id="btnVoltar" type="button" onclick="history.back()">← Voltar</button>
+    </form>
+</body>
+
+</html>
