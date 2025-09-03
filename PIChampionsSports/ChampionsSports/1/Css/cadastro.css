@@ -1,0 +1,103 @@
+ /* Estilo geral do corpo da página */
+  body {
+    font-family: Arial, sans-serif;
+    /* Define a fonte padrão */
+    margin: 0;
+    /* Remove margens padrão */
+    padding: 20px;
+    /* Define o espaçamento interno */
+    background-color: #1a1a2e;
+    /* Cor de fundo da página */
+}
+
+/* Estilo do formulário */
+form {
+    max-width: 400px;
+    /* Define a largura máxima do formulário */
+    margin: auto;
+    /* Centraliza o formulário na página */
+    background: #fff;
+    /* Cor de fundo do formulário */
+    padding: 80px;
+    /* Espaçamento interno do formulário */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+}
+
+/* Estilo do título do formulário */
+h2 {
+    text-align: center;
+    /* Centraliza o texto do título */
+    margin-bottom: 20px;
+    /* Espaçamento abaixo do título */
+}
+
+/* Estilo dos rótulos dos campos do formulário */
+label {
+    display: block;
+    /* Faz o rótulo ocupar toda a largura disponível */
+    margin-bottom: 8px;
+    /* Espaçamento abaixo do rótulo */
+    font-weight: bold;
+    /* Texto em negrito */
+}
+
+/* Estilo dos campos de entrada do formulário */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"] {
+    width: 100%;
+    /* Ocupa toda a largura do formulário */
+    padding: 8px;
+    /* Espaçamento interno do campo */
+    margin-bottom: 15px;
+    /* Espaçamento abaixo do campo */
+    border: 1px solid #ccc;
+    /* Borda do campo */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+}
+
+/* Estilo dos botões */
+button {
+    width: 48%;
+    /* Define a largura de cada botão */
+    padding: 10px;
+    /* Espaçamento interno dos botões */
+    margin-top: 10px;
+    /* Espaçamento acima dos botões */
+    border: none;
+    /* Remove as bordas padrão */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+    cursor: pointer;
+    /* Cursor em formato de mão ao passar sobre o botão */
+    font-size: 16px;
+    /* Tamanho da fonte dos botões */
+}
+
+/* Estilo do botão "Gravar" */
+button[type="submit"] {
+    background-color: #4CAF50;
+    /* Cor de fundo verde */
+    color: white;
+    /* Texto em branco */
+}
+
+/* Estilo do botão "Limpar" */
+button[type="reset"] {
+    background-color: #f44336;
+    /* Cor de fundo vermelha */
+    color: white;
+    /* Texto em branco */
+}
+
+/* Estilo do grupo de botões para posicionamento */
+.button-group {
+    display: flex;
+    /* Exibe os botões lado a lado */
+    justify-content: space-between;
+    /* Espaça os botões uniformemente */
+}

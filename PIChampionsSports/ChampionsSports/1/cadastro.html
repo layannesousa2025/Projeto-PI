@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Metadados do documento -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura o viewport para tornar o layout responsivo -->
+    <title>Cadastro de Paciente</title> <!-- Título da página que aparece na aba do navegador -->
+
+    <!-- Estilos CSS para o formulário -->
+<link rel="stylesheet" href="./Css/cadastro.css">
+</head>
+
+<body>
+    <!-- Início do formulário de cadastro de paciente -->
+    <form>
+        <!-- Título do formulário -->
+        <h2>Cadastro Usuário</h2>
+       
+        <!-- Campo para o nome do paciente -->
+        <label for="nome">Digite seu nome:</label>
+        <input type="text" id="nome" name="nome" required> <!-- Campo de texto obrigatório -->
+
+        <!-- Campo para o CPF do paciente -->
+        <label for="cpf">Digite seu CPF:</label>
+        <input type="text" id="cpf" name="cpf" required> <!-- Campo de texto obrigatório -->
+
+        <!-- Campo para o endereço do paciente -->
+        <label for="endereco">Digite seu endereço:</label>
+        <input type="text" id="endereco" name="endereco" required> <!-- Campo de texto obrigatório -->
+
+        <!-- Campo para o telefone do paciente -->
+        <label for="telefone">Digite seu telefone:</label>
+        <input type="text" id="telefone" name="telefone" required> <!-- Campo de texto obrigatório -->
+
+        <!-- Campo para o e-mail do paciente -->
+        <label for="email">Digite seu email:</label>
+        <input type="email" id="email" name="email" required> <!-- Campo de e-mail obrigatório -->
+
+        <!-- Campo para a data de nascimento do paciente -->
+        <label for="dataNascimento">Data de nascimento:</label>
+        <input type="date" id="dataNascimento" name="dataNascimento" required> <!-- Campo de data obrigatório -->
+
+        <!-- Campo para o login do paciente -->
+        <label for="login">Digite seu login:</label>
+        <input type="text" id="login" name="login" required> <!-- Campo de texto obrigatório -->
+
+        <!-- Campo para a senha do paciente -->
+        <label for="senha">Digite sua senha:</label>
+        <input type="password" id="senha" name="senha" required maxlength="11" accesskey="A"> <!-- Campo de senha obrigatório -->
+
+        <!-- Grupo de botões para submeter ou resetar o formulário -->
+        <div class="button-group">
+            <button type="submit">Gravar</button> <!-- Botão para enviar o formulário -->
+            <button type="reset">Limpar</button> <!-- Botão para limpar todos os campos do formulário -->
+        </div>
+    </form>
+</body>
+
+</html>
