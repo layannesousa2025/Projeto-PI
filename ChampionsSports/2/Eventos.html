@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventos de eSports Perto de Você</title>
+  <link rel="stylesheet" href="Css/eventos.css">
+
+</head>
+
+<body>
+  <div class="voltar">
+    <a href="./teste.html"><img src="./img/button (2).png" alt="Botão voltar"></a>
+  </div>
+
+  <header>
+    <h1>"Eventos De eSports"</h1>
+    <p>Use sua localização para ver Eventos mais perto de você!!!</p>
+  </header>
+
+  <div class="wrap">
+    <section class="controls" aria-label="Filtros de busca">
+      <div class="field">
+        <label class="label" for="q">Pesquisar (nome/cidade)</label>
+        <input id="q" type="text" placeholder="Eventos em Brasilia-DF..." />
+      </div>
+
+
+
+      <div class="field">
+        <label class="label" for="game">Eventos</label>
+        <select id="game">
+          <option value="">Todos</option>
+          <option>Academia</option>
+          <option>Ciclimos</option>
+          <option>Caminhada</option>
+          <option>Natação</option>
+          <option>Voleibol</option>
+          <option>Lazer</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="label" for="from">Data de</label>
+        <input id="from" type="date" />
+      </div>
+
+      <div class="field">
+        <label class="label" for="to">até</label>
+        <input id="to" type="date" />
+      </div>
+
+      <div class="row-span inline">
+        <button id="useLoc" class="btn primary" type="button">📍 Usar minha localização</button>
+        <button id="clearFilters" class="btn ghost" type="button">Limpar filtros</button>
+      </div>
+
+      <div class="row-span">
+        <div class="field">
+          <label class="label" for="radius">Raio de busca: <span id="radiusLabel">50</span> km</label>
+          <input id="radius" type="range" min="5" max="500" step="5" value="50" />
+        </div>
+      </div>
+
+      <div class="row-span">
+        <div class="inline">
+          <div class="field" style="min-width: 180px;">
+            <label class="label" for="sort">Ordenar por</label>
+            <select id="sort">
+              <option value="distance">Proximidade</option>
+              <option value="date">Data</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+
+      <details class="helper row-span">
+        <summary>Não conseguiu usar o GPS? Ajuste sua localização manualmente</summary>
+        <div class="inline" style="margin-top:8px">
+          <div class="field">
+            <label class="label" for="lat">Latitude</label>
+            <input id="lat" type="number" step="0.000001" placeholder="Ex.: -23.550520" />
+          </div>
+          <div class="field">
+            <label class="label" for="lon">Longitude</label>
+            <input id="lon" type="number" step="0.000001" placeholder="Ex.: -46.633308" />
+          </div>
+          <button id="applyManual" class="btn" type="button">Aplicar</button>
+        </div>
+      </details>
+    </section>
+
+    <div class="meta">
+      <div><span id="count">0</span> eventos encontrados</div>
+      <div id="locHint" class="muted">Dica: ative sua localização para ver distâncias</div>
+    </div>
+
+    <section id="results" class="grid" aria-live="polite"></section>
+
+    <div id="empty" class="empty" style="display:none;">Nenhum evento encontrado. Ajuste os filtros ou aumente o raio.
+    </div>
+  </div>
+
+
+
+  <script src="Js/categoria.js"></script>
+</body>
+
+</html>
