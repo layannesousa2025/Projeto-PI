@@ -83,8 +83,7 @@
           <div class="inline">
             <a class="btn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ev.venue + ' ' + ev.city)}" target="_blank" rel="noopener">Ver no mapa</a>
             <a class="btn" href="#" onclick="alert('Conecte a página do evento aqui.'); return false;">Detalhes</a>
-          </div>
-        `;
+          </div>`;
         res.appendChild(card);
       }
 
