@@ -1,145 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias Esportivas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color:#1a1a2e;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        .search-bar {
-            width: 100%;
-            max-width: 400px;
-            padding: 10px 40px 10px 10px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-        .search-icon, .filter-icon {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-            cursor: pointer;
-        }
-       
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 20px;
-            margin-top: 300px;
-        }
-        .category-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-            padding: 20px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        .category-icon {
-            width: 50px;
-            height: 50px;
-            fill: #007BFF;
-            margin-bottom: 10px;
-        }
-        .category-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-        }
+    <link rel="stylesheet" href="Css/categoria.css">
 
-</style>
 
 </head>
+
 <body>
-    <div style="position: absolute; top: 20px; right: 20px; z-index: 10;">
-        <img src="img/img-voltar.png" alt="img-voltar" 
-             style="width: 40px; height: 40px; max-width: 12vw; max-height: 12vw; cursor: pointer;"
-             onclick="window.history.back();">
-    </div>
-    <div class="container">
+    <h1>
+        <div class="voltar">
+            <a href="./teste.html"><img src="./img/button (2).png" alt="Botão voltar"></a>
+        </div>
         
+        <span style="float: right;">
+            <img src="./img/img-voltar.png" alt="img-voltar"
+                style="width: 60px; height: 60px; object-fit: contain; border: 2px solid #007BFF; border-radius: 10px; margin-left: 16px;">
+        </span>
+
+        <span style="float: right;">
+            <img src="./img/login2.png" alt="logo2" style="width: 60px; height: 60px; object-fit: contain;">
+        </span>
+
+    </h1>
+
+    <div class="container">
+
 
         <div class="search-container">
             <input type="text" class="search-bar" placeholder="Buscar categoria...">
         </div>
 
-       <div class="categories-grid">
-    <div class="category-card">
-        <div class="category-icon" viewBox="0 0 24 24">
-            <img src="" alt="">
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">
+                    <div class="category-name">Ciclismo</div>
+                    <img src="./img/bike.png" alt="img-ciclismo"
+                        style="width: 50px; height: 50px; object-fit: contain;">
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <div class="category-name">Futebol</div>
+                    <img src="./img/jogador.png" alt="img-futebol"
+                        style="width: 50px; height: 50px; object-fit: contain;">
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <div class="category-name">voleibol</div>
+                    <img src="./img/volei.png" alt="img-futebol"
+                        style="width: 50px; height: 50px; object-fit: contain;">
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <div class="category-name">Academia</div>
+                    <img src="./img/musculacao.png" alt="img-academia"
+                        style="width: 50px; height: 50px; object-fit: contain;">
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <div class="category-name">Caminhada</div>
+                    <img src="./img/caminhada.png" alt="img-caminhada"
+                        style="width: 50px; height: 50px; object-fit: contain;">
+                </div>
+            </div>
+
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <div class="category-name">Natação</div>
+                    <img src="./img/natacao.png" alt="img-natacao"
+                        style="width: 50px; height: 50px; object-fit: contain;">
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <div class="category-name">Lazer</div>
+                    <img src="./img/lazer.png" alt="img-lazer" style="width: 50px; height: 50px; object-fit: contain;">
+                </div>
+            </div>
+
+
         </div>
-        <div class="category-name">Ciclismo</div>
-    </div>
-
-    <div class="category-card">
-        <div class="category-icon" viewBox="0 0 24 24">
-            <img src="" alt="">
-        </div>
-        <div class="category-name">Futebol</div>
-    </div>
-
-    <div class="category-card">
-        <div class="category-icon" viewBox="0 0 24 24">
-            <img src="" alt="">
-        </div>
-        <div class="category-name">Futebol</div>
-    </div>
-
-
-    <div class="category-card">
-        <div class="category-icon" viewBox="0 0 24 24">
-             <img src="" alt="">
-        </div>
-        <div class="category-name">Ginástica</div>
-    </div>
-
-    <div class="category-card">
-        <div class="category-icon" viewBox="0 0 24 24">
-            <img src="" alt="">
-        </div>
-        <div class="category-name">Academia</div>
-    </div>
-
-    <div class="category-card">
-        <div class="category-icon" viewBox="0 0 24 24">
-            <img src="" alt="">
-        </div>
-        <div class="category-name">Natação</div>
-    </div>
-
-     <div class="category-card">
-        <div class="category-icon" viewBox="0 0 24 24">
-            <img src="" alt="">
-        </div>
-        <div class="category-name">Lazer</div>
-    </div>
-
-
-      
-
-   
-</div>
 
 </body>
+
 </html>

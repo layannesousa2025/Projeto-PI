@@ -1,0 +1,86 @@
+ body {
+     font-family: Arial, sans-serif;
+     background-color: #1a1a2e;
+     margin: 0;
+     padding: 20px;
+ }
+ .voltar {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+
+ }
+
+ .voltar img {
+   background-color: white;
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+ }
+
+
+
+ .container {
+     max-width: 1200px;
+     margin: auto;
+ }
+
+ .search-container {
+     display: flex;
+     justify-content: center;
+     margin-bottom: 20px;
+     position: relative;
+ }
+
+ .search-bar {
+     width: 100%;
+     max-width: 400px;
+     padding: 10px 40px 10px 10px;
+     border: 1px solid #ccc;
+     border-radius: 20px;
+     font-size: 16px;
+     margin-top: 20px;
+ }
+
+ .search-icon,
+ .filter-icon {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     font-size: 20px;
+     cursor: pointer;
+ }
+
+ .categories-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+     gap: 20px;
+     margin-top: 300px;
+ }
+
+ .category-card {
+     background-color: #fff;
+     border-radius: 10px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     text-align: center;
+     padding: 20px;
+     transition: transform 0.2s, box-shadow 0.2s;
+ }
+
+ .category-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+ }
+
+ .category-icon {
+     width: 50px;
+     height: 50px;
+     fill: #007BFF;
+     margin-bottom: 10px;
+ }
+
+ .category-name {
+     font-size: 18px;
+     font-weight: bold;
+     color: #333;
+ }
