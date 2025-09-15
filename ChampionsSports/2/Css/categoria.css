@@ -1,21 +1,31 @@
  body {
      font-family: Arial, sans-serif;
-     background-color: #1a1a2e;
+     background: linear-gradient(90deg,#FF000000, #1a1a2e,#351273);
      margin: 0;
      padding: 20px;
  }
+
+ h2 {
+     text-align: center;
+     color: white;
+     margin-top: 20px;
+     font-size: 24px;
+     margin-bottom: 20px;
+     margin-left: 60px;
+ }
+
  .voltar {
-   position: absolute;
-   top: 10px;
-   left: 10px;
+     position: absolute;
+     top: 10px;
+     left: 10px;
 
  }
 
  .voltar img {
-   background-color: white;
-   border-radius: 50%;
-   width: 40px;
-   height: 40px;
+     background-color: white;
+     border-radius: 50%;
+     width: 40px;
+     height: 40px;
  }
 
 
@@ -23,6 +33,7 @@
  .container {
      max-width: 1200px;
      margin: auto;
+
  }
 
  .search-container {
@@ -30,7 +41,29 @@
      justify-content: center;
      margin-bottom: 20px;
      position: relative;
+     margin-top: 40px;
  }
+
+ .search-icon {
+     right: 10px;
+     color: #888;
+     position: absolute;
+     width: 20px;
+     height: 20px;
+     margin-right: 390px;
+     margin-top: 10px;
+
+ }
+
+ @media (max-width: 420px) {
+  .search-icon {
+        margin-right: 10px;
+        margin-top: 10px;
+      
+  }
+}
+
+
 
  .search-bar {
      width: 100%;
@@ -40,6 +73,7 @@
      border-radius: 20px;
      font-size: 16px;
      margin-top: 20px;
+
  }
 
  .search-icon,
@@ -59,12 +93,31 @@
  }
 
  .category-card {
-     background-color: #fff;
-     border-radius: 10px;
-     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     background-color: #f9f9f9;
+     border-radius: 12px;
+     /* Aumentei ligeiramente o border-radius */
+     padding: 30px;
+     /* Aumentei o padding de 20px para 30px */
      text-align: center;
-     padding: 20px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     /* Shadow mais pronunciada */
      transition: transform 0.2s, box-shadow 0.2s;
+     cursor: pointer;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     width: 100px;
+     /* Adicionei largura fixa maior */
+     height: 100px;
+     /* Adicionei altura fixa maior */
+     gap: 15px;
+     /* Adicionei espaçamento entre elementos */
+ }
+
+ .category-card>*:not(:last-child) {
+     margin-bottom: 8px;
+     /* Espaçamento adicional se necessário */
  }
 
  .category-card:hover {

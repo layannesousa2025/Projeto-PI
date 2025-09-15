@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela-Usuario</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: linear-gradient(90deg,#FF000000, #1a1a2e,#351273);
+            text-align: center;
+            
+        }
+
+        /* Botão voltar */
+        .voltar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .voltar img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Perfil usuário */
+        .perfil-usuario {
+            margin-top: 60px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 300px;
+        }
+
+        .perfil-usuario img {
+            width: 360px;
+            margin-bottom: 15px;
+
+        }
+
+        .perfil-usuario p {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 0;
+            color: white;
+
+        }
+
+        /* Botões */
+        .botoes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+
+        }
+
+        .botoes input {
+            width: 220px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007BFF;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .botoes input:hover {
+            background-color: #0056b3;
+        }
+
+        #cadastro {
+            background: url("./img/Editar.png") no-repeat right 10px center;
+            background-size: 20px 20px;
+            padding-right: 40px;
+            /* espaço para o texto não encostar na imagem */
+            width: 220px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007BFF;
+            color: rgb(14, 13, 13);
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #cadastro:hover {
+            background-color: #0056b3;
+        }
+
+        #favorito {
+            background: url("./img/favorito.png") no-repeat right 2px center;
+            background-size: 20px 20px;
+            padding-right: 40px;
+            /* espaço para o texto não encostar na imagem */
+            width: 220px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007BFF;
+            color: rgb(0, 0, 0);
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #cadastro:hover {
+            background-color: #0056b3;
+        }
+
+
+        #contato {
+            background: url("./img/telefone.png") no-repeat right 10px center;
+            background-size: 20px 20px;
+            padding-right: 40px;
+            /* espaço para o texto não encostar na imagem */
+            width: 220px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007BFF;
+            color: rgb(12, 12, 12);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #cadastro:hover {
+            background-color: #0056b3;
+        }
+
+
+        #sair {
+            background: url("./img/sair\ \(1\).png") no-repeat right 10px center;
+            background-size: 20px 20px;
+            padding-right: 40px;
+            /* espaço para o texto não encostar na imagem */
+            width: 220px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007BFF;
+            color: rgb(8, 8, 8);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #cadastro:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="voltar">
+        <a href="./teste.html"><img src="./img/button (2).png" alt="Botão voltar"></a>
+    </div>
+
+    <div class="perfil-usuario">
+        <img src="img/login2.png" alt="Foto do usuário">
+        <p>Usuario</p>
+    </div>
+
+    <div class="botoes">
+        <input type="button" id="cadastro" value="Editar Cadastro">
+        <input type="button" id="favorito" value="Adicionar aos Favoritos">
+        <input type="button" id="contato" value="Adicionar Contato">
+        <input type="button" id="sair" value="Sair">
+    </div>
+
+</body>
+
+</html>

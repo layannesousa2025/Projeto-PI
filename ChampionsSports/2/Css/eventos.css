@@ -7,6 +7,7 @@
    --accent: #8ab4ff;
    --danger: #ff6b6b;
    --radius: 14px;
+   
  }
 
  * {
@@ -17,7 +18,7 @@
    margin: 0;
    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
    color: var(--text);
-   background-color: #1a1a2e;
+   background: linear-gradient(90deg,#FF000000, #1a1a2e,#351273);
  }
 
  .voltar {

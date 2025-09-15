@@ -1,6 +1,6 @@
  body {
      font-family: Arial, sans-serif;
-     background-color: #1a1a2e;
+     background: linear-gradient(90deg, #FF000000, #1a1a2e, #351273);
      margin: 0;
      padding: 20px;
  }
@@ -46,23 +46,24 @@
  }
 
  .event-card {
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 350px;
-    max-width: 100%;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0 auto;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    @media (max-width: 600px) {
-        width: 100%;
-        height: auto;
-    }
+     border-radius: 8px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     width: 350px;
+     max-width: 100%;
+     height: 250px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     margin: 0 auto;
+     box-sizing: border-box;
+     margin-bottom: 20px;
 
-  
+     @media (max-width: 600px) {
+         width: 100%;
+         height: auto;
+     }
+
+
  }
 
  .event-card:hover {
@@ -77,9 +78,9 @@
 
  .event-info {
      padding: 15px;
-     background-color:#b5bae98c ;
+     background-color: #b5bae98c;
      border-radius: 5px;
-    
+
  }
 
  .event-info h3 {
@@ -98,5 +99,3 @@
      font-size: 0.9em;
      color: #999;
  }
-
-   
