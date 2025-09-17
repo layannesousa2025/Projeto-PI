@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tela Início - ChampionsSports</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a2e;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            color: #c161f4; /* tom quente para contraste com o fundo escuro */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            line-height: 1.1;
+        }
+
+        img {
+            max-width: 200px;
+            width: 40vw;
+            height: auto;
+            filter: drop-shadow(0 0 5px rgba(242, 97, 244, 0.7));
+        }
+
+        /* Container dos botões */
+        .botoes {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        button {
+            background-color: #cc86ed;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 28px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1f1212;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(207, 97, 244, 0.6);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            flex: 1 1 150px;
+            min-width: 150px;
+        }
+
+
+        /* Para melhorar acessibilidade */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+
+        /* Responsividade para telas pequenas */
+        @media (max-width: 480px) {
+            h2 {
+                font-size: clamp(1.8rem, 6vw, 4rem);
+            }
+
+            img {
+                max-width: 150px;
+                width: 60vw;
+            }
+
+            .botoes {
+                flex-direction: column;
+                max-width: 280px;
+            }
+
+            button {
+                flex: 1 1 auto;
+                min-width: auto;
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Bem-vindo à ChampionsSports</h2>
+   <img src="./img/Logo.png" alt="Logo da ChampionsSports" />
+    <div class="botoes">
+        <button onclick="location.href='telaPrincipal.html'">Acessar Agora</button>
+       
+    </div>
+</body>
+
+</html>
+
+
