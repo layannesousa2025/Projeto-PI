@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela de Login</title>
+  <link rel="stylesheet" href="Css/login.css">
+</head>
+
+<body>
+  <div class="voltar">
+    <a href="telaPrincipal.html"><img src="./img/button (2).png" alt="Botão voltar"></a>
+  </div>
+
+  <form onsubmit="return verificarLogin(event)">
+    <h1>Login De Usuário</h1>
+
+    <div id="Nome Usuario">
+      <label for="Nome">Nome de Usuario ou E-mail:</label>
+      <input type="text" id="nome" required>
+    </div>
+
+    <div id="Senha">
+      <label for="Senha">Senha:</label>
+      <input type="password" id="senha" required>
+    </div>
+
+    <div id="botao-clique">
+      <input type="checkbox" id="lembrar-me">
+      <label for="lembrar-me">lembrar-me</label>
+    </div>
+
+    <br>
+    <div id="botao-principal">
+     <a href="login.php"></a> <button type="submit" href="login.php" >Entrar</button>
+    </div>
+
+    <br>
+    <div id="recuperar-senha">
+      <a href="cadastro.html">Criar Conta</a>
+    </div>
+
+    <br>
+    <div id="Criar-Conta">
+      <a href="recuperacao.html">Esqueceu a Senha?</a>
+    </div>
+  </form>
+
+  
+
+</body>
+<!--
+<script>
+  function verificarLogin(event) {
+    event.preventDefault(); // evita envio automático
+
+    const usuario = document.getElementById("nome").value;
+    const senhaDigitada = document.getElementById("senha").value;
+    const senhaCorreta = "123456"; // senha fixa para teste
+
+    if (senhaDigitada === senhaCorreta) {
+      alert("Bem-vindo, " + usuario + "!");
+      // exemplo de redirecionamento:
+      // window.location.href = "telaPrincipal.html";
+    } else {
+      alert("Senha incorreta!");
+    }
+  }
+</script>-->
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela-cadastro</title>
+    <link rel="stylesheet" href="Css/cadastro.css">
+</head>
+
+<body>
+    <div class="voltar">
+        <a href="telaPrincipal.html"><img src="./img/button (2).png" alt="Botão voltar"></a>
+    </div>
+
+  
+
+    <form action="cadastro_usuario.php" id="cadastroForm" method="POST">
+        <h1>Cadastro Usuario</h1>
+    <div class="form-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo" minlength="2">
+        <div class="error-message" id="nomeError">Nome deve ter pelo menos 2 caracteres</div>
+    </div>
+
+    <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf" required placeholder="Digite seu CPF" pattern="\d{11}">
+        <div class="error-message" id="cpfError">Digite um CPF válido (somente números)</div>
+    </div>
+
+    <div class="form-group">
+        <label for="dataNascimento">Data de Nascimento</label>
+        <input type="date" id="dataNascimento" name="dataNascimento" required>
+        <div class="error-message" id="dataNascimentoError">Informe uma data válida</div>
+    </div>
+
+    <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" required placeholder="(xx) xxxxx-xxxx" pattern="\(\d{2}\)\s\d{4,5}-\d{4}">
+        <div class="error-message" id="telefoneError">Digite um telefone válido (formato: (xx) xxxxx-xxxx)</div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required placeholder="Digite seu e-mail">
+        <div class="error-message" id="emailError">Digite um e-mail válido</div>
+    </div>
+
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" required placeholder="Digite sua senha" minlength="6">
+        <div class="error-message" id="senhaError">Senha deve ter pelo menos 6 caracteres</div>
+    </div>
+
+    <div class="form-group">
+        <label for="confirmarSenha">Confirmar Senha</label>
+        <input type="password" id="confirmarSenha" name="confirmarSenha" required placeholder="Confirme sua senha">
+        <div class="error-message" id="confirmarSenhaError">As senhas não coincidem</div>
+        <div class="success-message" id="confirmarSenhaSuccess">Senhas coincidem ✓</div>
+    </div>
+
+    <div class="checkbox-group">
+        <input type="checkbox" id="termos" name="termos" required>
+        <label for="termos">
+            Eu concordo com os <a href="#" target="_blank">Termos de Uso</a>
+            e <a href="#" target="_blank">Política de Privacidade</a>
+        </label>
+    </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+               <p> Criar Conta</p> 
+            </button>
+
+            <div class="login-link">
+            Já tem uma conta? <a href="Login.html">Fazer login</a>
+        </div>
+</form>
+
+   
+    <script>
+        const form = document.getElementById("cadastroForm");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // impede recarregar a página
+
+            // Pega os valores
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const senha = document.getElementById("senha").value;
+            const confirmar = document.getElementById("confirmarSenha").value;
+
+            // Valida campos
+            if (nome.length < 2) {
+                alert("Nome deve ter pelo menos 2 caracteres");
+                return;
+            }
+
+            const reEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!reEmail.test(email)) {
+                alert("Digite um e-mail válido");
+                return;
+            }
+
+            if (senha.length < 6) {
+                alert("Senha deve ter pelo menos 6 caracteres");
+                return;
+            }
+
+            if (senha !== confirmar) {
+                alert("Senha incorreta! As senhas não coincidem.");
+                return;
+            }
+
+            // Se passou por todas as validações
+            alert("Cadastro realizado com sucesso!");
+            form.reset(); // limpa o formulário
+        });
+    </script>
+</body>
+</html>
