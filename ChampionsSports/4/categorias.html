@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias Esportivas</title>
+    <link rel="stylesheet" href="Css/categoria.css">
+    <!-- Adicionando Font Awesome para o ícone de estrela -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <h1>
+        <div class="voltar">
+            <a href="./telaPrincipal.php"><img src="./img/button (2).png" alt="Botão voltar"></a>
+        </div>
+
+        <div class="usuario" float: right;>
+            <a href="usuario.html">
+                <img src="./img/login2.png" alt="logo2" style="width: 60px; height: 60px; object-fit: contain;">
+            </a>
+
+        </div>
+
+    </h1>
+
+    <h2>Busque Suas Categorias</h2>
+
+    <p style="text-align: center; color: #ccc; margin-top: -10px; margin-bottom: 20px;">
+        Clique na estrela ★ para adicionar uma categoria aos seus favoritos!
+    </p>
+    <div class="container">
+
+
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Buscar categoria...">
+            <img src="./img/img-pesquisa (1).png" alt="Buscar" class="search-icon">
+            <!-- <input type="image" src="./img/img-pesquisa (1).png" alt="Buscar" class="search-icon"> -->
+        </div>
+
+        <div class="categories-grid">
+            <div class="category-card" data-category="Ciclismo">
+                <i class="fas fa-star favorite-star"></i>
+                <img src="./img/bike.png" alt="Ícone de Ciclismo" class="category-icon">
+                <span class="category-name">Ciclismo</span>
+            </div>
+            <div class="category-card" data-category="Futebol">
+                <i class="fas fa-star favorite-star"></i>
+                <img src="./img/jogador.png" alt="Ícone de Futebol" class="category-icon">
+                <span class="category-name">Futebol</span>
+            </div>
+            <div class="category-card" data-category="Voleibol">
+                <i class="fas fa-star favorite-star"></i>
+                <img src="./img/volei.png" alt="Ícone de Voleibol" class="category-icon">
+                <span class="category-name">Voleibol</span>
+            </div>
+            <div class="category-card" data-category="Academia">
+                <i class="fas fa-star favorite-star"></i>
+                <img src="./img/musculacao.png" alt="Ícone de Musculação" class="category-icon">
+                <span class="category-name">Academia</span>
+            </div>
+            <div class="category-card" data-category="Caminhada">
+                <i class="fas fa-star favorite-star"></i>
+                <img src="./img/caminhada.png" alt="Ícone de Caminhada" class="category-icon">
+                <span class="category-name">Caminhada</span>
+            </div>
+            <div class="category-card" data-category="Natação">
+                <i class="fas fa-star favorite-star"></i>
+                <img src="./img/natacao.png" alt="Ícone de Natação" class="category-icon">
+                <span class="category-name">Natação</span>
+            </div>
+            <div class="category-card" data-category="Lazer">
+                <i class="fas fa-star favorite-star"></i>
+                <img src="./img/lazer.png" alt="Ícone de Lazer" class="category-icon">
+                <span class="category-name">Lazer</span>
+            </div>
+            <div class="category-card" data-category="PCD">
+                <i class="fas fa-star favorite-star"></i>
+                <img src="./img/rodas.png" alt="Ícone de Esportes Adaptados (PCD)" class="category-icon">
+                <span class="category-name">PCD</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categoryCards = document.querySelectorAll('.category-card');
+
+            // Carrega os favoritos salvos no localStorage
+            let favorites = JSON.parse(localStorage.getItem('favoriteCategories')) || [];
+
+            // Função para atualizar a aparência das estrelas
+            function updateStars() {
+                categoryCards.forEach(card => {
+                    const category = card.dataset.category;
+                    const star = card.querySelector('.favorite-star');
+                    if (favorites.includes(category)) {
+                        star.classList.add('favorited');
+                    } else {
+                        star.classList.remove('favorited');
+                    }
+                });
+            }
+
+            categoryCards.forEach(card => {
+                const category = card.dataset.category;
+                const star = card.querySelector('.favorite-star');
+
+                // Evento de clique na estrela
+                star.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Impede que o clique na estrela ative o link do card
+                    event.preventDefault();
+
+                    if (favorites.includes(category)) {
+                        // Remove dos favoritos
+                        favorites = favorites.filter(fav => fav !== category);
+                    } else {
+                        // Adiciona aos favoritos
+                        favorites.push(category);
+                    }
+                    // Salva no localStorage
+                    localStorage.setItem('favoriteCategories', JSON.stringify(favorites));
+                    updateStars();
+                });
+
+                // Evento de clique no card para navegar para os eventos
+                card.addEventListener('click', () => {
+                    window.location.href = `eventos.html?game=${category}`;
+                });
+            });
+
+            // Atualiza as estrelas ao carregar a página
+            updateStars();
+        });
+    </script>
+</body>
+
+</html>
