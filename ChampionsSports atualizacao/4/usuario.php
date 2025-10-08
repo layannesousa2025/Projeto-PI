@@ -1,0 +1,48 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.html");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela-Usuario</title>
+    <link rel="stylesheet" href="Css/usuario.css">
+</head>
+
+<body>
+
+    <div class="perfil-usuario">
+        <img src="img/login2.png" alt="Foto do usuário">
+        <p><?php echo htmlspecialchars($_SESSION['nome']); ?></p>
+    </div>
+
+    <div class="altera foto">
+        <p>Altera Foto</p>
+    </div>
+
+    <div class="botoes">
+        <a href="cadastro.html">
+            <input type="button" id="cadastro" value="Editar Cadastro">
+        </a>
+        <a href="favoritos.php">
+            <input type="button" id="favorito" value="Meus Favoritos">
+        </a>
+        <a href="contato.html">
+            <input type="button" id="contato" value="Adicionar Contato">
+        </a>
+        <a href="logout.php">
+            <input type="button" id="sair" value="Sair">
+        </a>
+
+    </div>
+
+</body>
+
+</html>
