@@ -85,21 +85,21 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const categoryCards = document.querySelectorAll('.category-card'); 
- 
+            const categoryCards = document.querySelectorAll('.category-card');
+
             // Função para atualizar a aparência das estrelas com base em uma lista de favoritos
-            function updateStars(favoriteList = []) { 
-                categoryCards.forEach(card => { 
-                    const category = card.dataset.category; 
-                    const star = card.querySelector('.favorite-star'); 
-                    if (favoriteList.includes(category)) { 
-                        star.classList.add('favorited'); 
-                    } else { 
-                        star.classList.remove('favorited'); 
-                    } 
-                }); 
-            } 
- 
+            function updateStars(favoriteList = []) {
+                categoryCards.forEach(card => {
+                    const category = card.dataset.category;
+                    const star = card.querySelector('.favorite-star');
+                    if (favoriteList.includes(category)) {
+                        star.classList.add('favorited');
+                    } else {
+                        star.classList.remove('favorited');
+                    }
+                });
+            }
+
             // Função para salvar o favorito no banco de dados
             async function toggleFavorite(category, starElement) {
                 const isFavorited = starElement.classList.contains('favorited');
@@ -144,24 +144,24 @@
                     console.error("Não foi possível carregar os favoritos:", error);
                 }
             }
- 
+
             // Adiciona os eventos de clique
-            categoryCards.forEach(card => { 
+            categoryCards.forEach(card => {
                 const category = card.dataset.category;
                 const star = card.querySelector('.favorite-star');
- 
+
                 // Evento de clique na estrela
-                star.addEventListener('click', (event) => { 
+                star.addEventListener('click', (event) => {
                     event.stopPropagation(); // Impede que o clique na estrela ative o link do card
                     toggleFavorite(category, star);
-                }); 
- 
+                });
+
                 // Evento de clique no card para navegar para os eventos
-                card.addEventListener('click', () => { 
+                card.addEventListener('click', () => {
                     window.location.href = `eventos.html?game=${category}`;
-                }); 
-            }); 
- 
+                });
+            });
+
             // Carrega os favoritos do usuário ao iniciar a página
             loadFavorites();
         });

@@ -1,6 +1,36 @@
 <?php
-// No futuro, você pode adicionar aqui a lógica PHP para buscar os favoritos do banco de dados
-// quando o usuário estiver logado.
+session_start();
+
+// Redireciona se não estiver logado
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: Login.html');
+    exit;
+}
+
+// Busca as categorias favoritas do usuário no banco
+$favoritos_usuario = [];
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=banco_teste01;charset=utf8", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Busca o registro de categorias do usuário
+    $sql = "SELECT ciclismo, futebol, voleibol, academia, caminhada, natacao, lazer, pcd FROM categoria WHERE id_cadastro_usuarios = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_SESSION['id_cadastro_usuario']]);
+    $categorias = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($categorias) {
+        // Filtra apenas as categorias que estão marcadas como 1 (favoritas)
+        foreach ($categorias as $nome_categoria => $is_favorito) {
+            if ($is_favorito == 1) {
+                // Adiciona o nome da categoria (com a primeira letra maiúscula) ao array de favoritos
+                $favoritos_usuario[] = ucfirst($nome_categoria);
+            }
+        }
+    }
+} catch (Exception $e) {
+    // Em caso de erro, a página carrega sem favoritos. Pode-se adicionar um log aqui.
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -17,10 +47,10 @@
 <body>
     <h1>
         <div class="voltar">
-            <a href="./usuario.html"><img src="./img/button (2).png" alt="Botão voltar"></a>
+            <a href="./usuario.php"><img src="./img/button (2).png" alt="Botão voltar"></a>
         </div>
-        <div class="usuario" style="float: right;">
-            <a href="usuario.html">
+        <div class="usuario" float: right;>
+            <a href="usuario.php">
                 <img src="./img/login2.png" alt="logo2" style="width: 60px; height: 60px; object-fit: contain;">
             </a>
         </div>
@@ -38,20 +68,20 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', () => {
             const favoritesGrid = document.getElementById('favorites-grid');
             const noFavoritesMessage = document.getElementById('no-favorites-message');
-            const favorites = JSON.parse(localStorage.getItem('favoriteCategories')) || [];
+            const favorites = <?php echo json_encode($favoritos_usuario); ?>;
 
             const allCategories = {
                 'Ciclismo': './img/bike.png',
                 'Futebol': './img/jogador.png',
                 'Voleibol': './img/volei.png',
                 'Academia': './img/musculacao.png',
-                'Caminhada': './img/caminhada.png',
-                'Natação': './img/natacao.png',
-                'Lazer': './img/lazer.png',
-                'PCD': './img/rodas.png'
+                'Caminhada': './img/caminhada.png', // Chave com 'C' maiúsculo
+                'Natacao': './img/natacao.png',     // Chave com 'N' maiúsculo
+                'Lazer': './img/lazer.png',       // Chave com 'L' maiúsculo
+                'Pcd': './img/rodas.png'          // Chave com 'P' maiúsculo
             };
 
             if (favorites.length === 0) {
@@ -62,7 +92,12 @@
                     categoryCard.className = 'category-card';
                     categoryCard.dataset.category = categoryName;
 
-                    const imageUrl = allCategories[categoryName];
+                    // Busca a imagem no objeto, garantindo que a primeira letra seja maiúscula
+                    const formattedCategoryName = categoryName.charAt(0).toUpperCase() + categoryName.slice(1).toLowerCase();
+                    const imageUrl = allCategories[formattedCategoryName];
+
+                    // Se a imagem não for encontrada, pula a criação do card para evitar erros
+                    if (!imageUrl) return;
 
                     categoryCard.innerHTML = `
                         <i class="fas fa-star favorite-star favorited"></i>
@@ -70,13 +105,44 @@
                         <span class="category-name">${categoryName}</span>
                     `;
 
-                    // Redireciona para a página de eventos ao clicar
+                    // Adiciona evento de clique no card para navegar para os eventos
                     categoryCard.addEventListener('click', () => {
                         window.location.href = `eventos.html?game=${categoryName}`;
                     });
 
+                    // Adiciona evento de clique na estrela para remover o favorito
+                    const star = categoryCard.querySelector('.favorite-star');
+                    star.addEventListener('click', (event) => {
+                        event.stopPropagation(); // Impede que o clique na estrela acione o clique no card
+                        event.preventDefault();
+
+                        // Remove o card da tela de forma definitiva
+                        categoryCard.remove();
+
+                        // Se não houver mais favoritos, mostra a mensagem
+                        if (favoritesGrid.children.length === 0) {
+                            noFavoritesMessage.style.display = 'block';
+                        }
+
+                        // Envia a alteração para o servidor (para remover do banco)
+                        saveFavoriteState(categoryName, false);
+                    });
+
                     favoritesGrid.appendChild(categoryCard);
                 });
+            }
+
+            async function saveFavoriteState(category, isFavorited) {
+                try {
+                    await fetch('salvar_favorito_categoria.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ category: category.toLowerCase(), isFavorited: isFavorited })
+                    });
+                } catch (error) {
+                    console.error('Erro ao remover favorito:', error);
+                    alert('Não foi possível remover o favorito. Tente recarregar a página.');
+                }
             }
         });
     </script>

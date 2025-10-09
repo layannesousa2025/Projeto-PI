@@ -410,6 +410,7 @@ header {
     font-weight: bold;
     font-size: 1.5rem;
     margin-left: 100px;
+    flex-shrink: 0; /* Impede que o logo encolha */
 }
 
 .logo p {
@@ -919,6 +920,31 @@ footer {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 
+    /* Ajustes para o cabeçalho em telas menores */
+    header {
+        padding: 1rem 1rem; /* Reduz o padding horizontal do cabeçalho */
+    }
+
+    .logo {
+        margin-left: 0; /* Remove a margem fixa do logo */
+        font-size: 1.2rem; /* Ajusta o tamanho da fonte do logo */
+    }
+    .logo p {
+        font-size: 1.2rem; /* Ajusta o tamanho da fonte do texto do logo */
+    }
+
+    .login-button .btn-outline,
+    .login-button .btn-primary {
+        padding: 8px 15px; /* Reduz o padding dos botões */
+        font-size: 0.9rem; /* Reduz o tamanho da fonte dos botões */
+    }
+
+    .login-button {
+        flex-direction: column; /* Empilha os botões verticalmente */
+        gap: 8px; /* Adiciona um pequeno espaço entre eles */
+        align-items: flex-end; /* Alinha os botões empilhados à direita */
+    }
+
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -947,12 +973,48 @@ footer {
         font-size: 2rem;
     }
 
+    /* Ajustes para o cabeçalho em telas muito pequenas */
+    header {
+        padding: 0.8rem 0.5rem; /* Reduz ainda mais o padding horizontal */
+    }
+
+    .logo {
+        font-size: 1rem; /* Ajusta o tamanho da fonte do logo */
+    }
+    .logo p {
+        font-size: 1rem; /* Ajusta o tamanho da fonte do texto do logo */
+    }
+
+    /* Ajustes para o hero section */
+    .hero p {
+        font-size: 0.9rem; /* Reduz o tamanho da fonte do parágrafo */
+    }
+
     .section-title {
         font-size: 2rem;
     }
 
     .events-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Ajustes para o chatbot */
+    .chatbot-messages {
+        height: 250px; /* Reduz a altura da área de mensagens do chatbot */
+    }
+
+    /* Ajustes para o footer */
+    .footer-columns {
+        flex-direction: column; /* Empilha as colunas do footer verticalmente */
+        gap: 20px; /* Adiciona espaçamento entre as colunas empilhadas */
+    }
+
+    .footer-about,
+    .footer-links,
+    .footer-contact,
+    .footer-social {
+        text-align: center; /* Centraliza o texto das colunas do footer */
+        margin-bottom: 0; /* Remove margem inferior extra */
     }
 
 

@@ -1,4 +1,5 @@
 <?php
+session_start(); // Iniciar a sessão para armazenar o ID do usuário
 // Dados de conexão com o banco de dados (substitua com os seus)
 $servername = "localhost";
 $username = "root";
@@ -12,6 +13,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
+
+// Habilita o modo de relatório de exceções para mysqli, para que o try...catch funcione corretamente.
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 // Verifica se os dados do formulário foram enviados
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -30,19 +34,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $deficiencia_neurologica = isset($_POST['deficiencia_neurologica']) ? 1 : 0;
     $deficiencia_psiquica = isset($_POST['deficiencia_psiquica']) ? 1 : 0;
     $deficiencia_outros = isset($_POST['deficiencia_outros']) ? 1 : 0;
-
-if ($datanascimento_input) {
-    $date = DateTime::createFromFormat('Y-m-d', $datanascimento_input);
-    if ($date) {
-        $datanascimento = $date->format('Y-m-d');
-    } else {
-        die("Formato de data inválido.");
-    }
-} else {
-    die("Data de nascimento não informada.");
-}// Converte para 2025-09-29
     $telefone = $_POST['telefone'];
+    $datanascimento = null;
 
+    if ($datanascimento_input) {
+        $date = DateTime::createFromFormat('Y-m-d', $datanascimento_input);
+        if ($date && $date->format('Y-m-d') === $datanascimento_input) {
+            $datanascimento = $datanascimento_input;
+        } else {
+            die("Formato de data inválido.");
+        }
+    } else {
+        die("Data de nascimento não informada.");
+    }
 
     // Criptografa a senha antes de salvar no banco
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
@@ -58,22 +62,57 @@ if ($datanascimento_input) {
         // E-mail já existe, mostra uma mensagem de erro
         echo "Este e-mail já está cadastrado!";
     } else {
-        // E-mail não existe, insere o novo usuário
-        $insert_sql = "INSERT INTO usuarios (nome, cpf, email, senha, datanascimento, telefone, deficiencia_visual, deficiencia_auditiva, deficiencia_motora, deficiencia_cardiaca, deficiencia_intelectual, deficiencia_neurologica, deficiencia_psiquica, deficiencia_outros) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $insert_stmt = $conn->prepare($insert_sql);
+        // E-mail não existe, inicia uma transação
+        $conn->begin_transaction();
 
+        try {
+            // 1. Insere na tabela 'login' primeiro para obter o id_login
+            $insert_login_sql = "INSERT INTO login (usuario, senha) VALUES (?, ?)";
+            $insert_login_stmt = $conn->prepare($insert_login_sql);
+            $insert_login_stmt->bind_param("ss", $email, $senha_hash); // Usando email como 'usuario'
+            $insert_login_stmt->execute();
+            $id_login_novo = $conn->insert_id;
 
-        $insert_stmt->bind_param("ssssssiiiiiiii", $nome, $cpf, $email, $senha_hash, $datanascimento, $telefone,
-        $deficiencia_visual, $deficiencia_auditiva, $deficiencia_motora,
-        $deficiencia_cardiaca, $deficiencia_intelectual, $deficiencia_neurologica,
-        $deficiencia_psiquica, $deficiencia_outros);
-        
-        if ($insert_stmt->execute()) {
-          header("Location:endereco.html");
-        } else {
-            echo "Erro: " . $insert_stmt->error;
+            // 2. Insere na tabela 'usuarios' (mantendo para o sistema de login atual)
+            $insert_user_sql = "INSERT INTO usuarios (nome, cpf, email, senha, datanascimento, telefone) VALUES (?, ?, ?, ?, ?, ?)";
+            $insert_user_stmt = $conn->prepare($insert_user_sql);
+            $insert_user_stmt->bind_param("ssssss", $nome, $cpf, $email, $senha_hash, $datanascimento, $telefone);
+            $insert_user_stmt->execute();
+            $id_usuario_novo = $conn->insert_id;
+
+            // 3. Insere na tabela 'cadastro_usuarios' usando o id_login_novo
+            $insert_cad_user_sql = "INSERT INTO cadastro_usuarios (nome, cpf, data_nascimento, telefone, email, id_login) VALUES (?, ?, ?, ?, ?, ?)";
+            $insert_cad_user_stmt = $conn->prepare($insert_cad_user_sql);
+            $insert_cad_user_stmt->bind_param("sssssi", $nome, $cpf, $datanascimento, $telefone, $email, $id_login_novo);
+            $insert_cad_user_stmt->execute();
+            $id_cadastro_usuario_novo = $conn->insert_id;
+
+            // 4. Insere na tabela 'acessibilidade'
+            $insert_access_sql = "INSERT INTO acessibilidade (id_cadastro_usuarios, deficiencia_visual, deficiencia_auditiva, deficiencia_motora, deficiencia_cardiaca, deficiencia_intelectual, deficiencia_neurologica, deficiencia_psiquica, outros) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $insert_access_stmt = $conn->prepare($insert_access_sql);
+            $insert_access_stmt->bind_param("iiiiiiiii", $id_cadastro_usuario_novo, $deficiencia_visual, $deficiencia_auditiva, $deficiencia_motora, $deficiencia_cardiaca, $deficiencia_intelectual, $deficiencia_neurologica, $deficiencia_psiquica, $deficiencia_outros);
+            $insert_access_stmt->execute();
+
+            // Se tudo deu certo, confirma a transação
+            $conn->commit();
+
+            // LOGAR AUTOMATICAMENTE O USUÁRIO APÓS O CADASTRO
+            // Limpa qualquer sessão antiga e inicia uma nova
+            session_unset();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['id'] = $id_usuario_novo; // ID da tabela 'usuarios'
+            $_SESSION['nome'] = $nome;
+            $_SESSION['id_cadastro_usuario'] = $id_cadastro_usuario_novo; // ID da tabela 'cadastro_usuarios'
+
+            // Redireciona para a página de endereço. Como o usuário já está logado,
+            // o ID pode ser pego da sessão principal.
+            header("Location: endereco.php"); // Redireciona para o novo arquivo PHP
+            exit; // Garante que o script pare aqui
+
+        } catch (mysqli_sql_exception $exception) {
+            $conn->rollback(); // Desfaz as operações em caso de erro
+            die("Erro ao cadastrar: " . $exception->getMessage());
         }
-        $insert_stmt->close();
     }
     $check_stmt->close();
 }

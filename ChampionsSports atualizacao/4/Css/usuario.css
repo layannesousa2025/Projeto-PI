@@ -8,21 +8,6 @@ body {
     text-align: center; /* Centraliza o texto e elementos inline-block */
 }
 
-/* ==========================================================================
-   Componente: Botão de Voltar
-   ========================================================================== */
-.voltar {
-    position: absolute; /* Posicionamento absoluto em relação ao body */
-    top: 10px; /* Distância do topo */
-    left: 10px; /* Distância da esquerda */
-}
-
-.voltar img {
-    background-color: white; /* Fundo branco para o ícone */
-    border-radius: 50%; /* Torna a imagem circular */
-    width: 40px; /* Largura do ícone */
-    height: 40px; /* Altura do ícone */
-}
 
 /* ==========================================================================
    Componente: Botão "Altera Foto"

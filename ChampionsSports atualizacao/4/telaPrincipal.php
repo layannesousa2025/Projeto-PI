@@ -7,7 +7,7 @@ session_start(); // Inicia a sessão para verificar o login
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tela-Pricipal</title>
+  <title>Document</title>
   <link rel="stylesheet" href="Css/telaPrincipal.css">
   <link rel="stylesheet" href="Css/carrosel.css">
   <!-- Adicione o link para o Font Awesome para exibir os ícones sociais -->
@@ -40,7 +40,7 @@ session_start(); // Inicia a sessão para verificar o login
         <a href="./telaPrincipal.php">
           <li>Início</li>
         </a>
-        <a href="./categorias.html">
+        <a href="./categorias.php">
           <li>Categorias</li>
         </a>
         <a href="./eventos.html">
@@ -68,7 +68,7 @@ session_start(); // Inicia a sessão para verificar o login
     <nav>
       <ul class="nav-menu">
         <li><a href="#home">Início</a></li>
-        <li><a href="categorias.html">Categorias</a></li>
+        <li><a href="categorias.php">Categorias</a></li>
         <li><a href="eventos.html">Eventos</a></li>
         <li><a href="sobre.html">Sobre</a></li>
         <li><a href="#chatbot">Chatbot</a></li>
@@ -122,58 +122,66 @@ session_start(); // Inicia a sessão para verificar o login
         <div class="carousel-slides">
           <div class="carousel-slide active">
             <img src="./img/futebol.jpg" alt="imagem-futebol">
-            <h3>Futebol</h3>
-            <p>Cada treino te leva um passo mais perto da vitória.</p>
-            <div class="slide-content"></div>
+            <div class="slide-content">
+              <h3>Futebol</h3>
+              <p>Cada treino te leva um passo mais perto da vitória.</p>
+            </div>
           </div>
 
           <div class="carousel-slide">
             <img src="./img/capoeira.jpg" alt="imagem-capoeira">
-            <h3>Capoeira</h3>
-            <p>Os sonhos são construídos com dedicação.</p>
-            <div class="slide-content"></div>
+            <div class="slide-content">
+              <h3>Capoeira</h3>
+              <p>Os sonhos são construídos com dedicação.</p>
+            </div>
           </div>
 
           <div class="carousel-slide">
             <img src="./img/jiujitsu.jpg" alt="imagem-jiujitsu">
-            <h3>Jiu-jitsu</h3>
-            <p>Agilidade e paciência.</p>
-            <div class="slide-content"></div>
+            <div class="slide-content">
+              <h3>Jiu-jitsu</h3>
+              <p>Agilidade e paciência.</p>
+            </div>
           </div>
 
           <div class="carousel-slide">
             <img src="./img/remo.jpg" alt="imagem-remo">
-            <h3>Remo</h3>
-            <p>Quanto mais Treinamos ,mais forte ficamos.</p>
-            <div class="slide-content"></div>
+            <div class="slide-content">
+              <h3>Remo</h3>
+              <p>Quanto mais Treinamos, mais forte ficamos.</p>
+            </div>
           </div>
 
           <div class="carousel-slide">
             <img src="./img/tenis.jpg" alt="imagem-tenis">
-            <h3>Tênis</h3>
-            <p>Agilidade.</p>
-            <div class="slide-content"></div>
+            <div class="slide-content">
+              <h3>Tênis</h3>
+              <p>Agilidade.</p>
+            </div>
           </div>
 
           <div class="carousel-slide">
             <img src="./img/volei-praia.jpg" alt="imagem-volei-praia">
-            <h3>Vôlei de Praia</h3>
-            <p>Cooperação e saltos impressionantes.</p>
-            <div class="slide-content"></div>
+            <div class="slide-content">
+              <h3>Vôlei de Praia</h3>
+              <p>Cooperação e saltos impressionantes.</p>
+            </div>
           </div>
 
           <div class="carousel-slide">
             <img src="./img/natacao.jpg" alt="imagem-natacao">
-            <h3>Natação</h3>
-            <p>Determinação.</p>
-            <div class="slide-content"></div>
+            <div class="slide-content">
+              <h3>Natação</h3>
+              <p>Determinação.</p>
+            </div>
           </div>
 
           <div class="carousel-slide">
             <img src="./img/musculacao.jpg" alt="imagem-musculacao">
-            <h3>Musculação</h3>
-            <p>Força e resistência.</p>
-            <div class="slide-content"></div>
+            <div class="slide-content">
+              <h3>Musculação</h3>
+              <p>Força e resistência.</p>
+            </div>
           </div>
         </div>
 
@@ -185,9 +193,7 @@ session_start(); // Inicia a sessão para verificar o login
 
         <!-- Indicadores -->
         <div class="carousel-indicators">
-          <button class="indicator active" data-index="0"></button>
-          <button class="indicator" data-index="1"></button>
-          <button class="indicator" data-index="2"></button>
+          <!-- Indicadores serão gerados dinamicamente pelo JavaScript -->
         </div>
       </div>
 
