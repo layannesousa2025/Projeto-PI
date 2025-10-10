@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventos de eSports Perto de Você</title>
+  <link rel="stylesheet" href="Css/eventos.css">
+
+</head>
+
+<body>
+  <div class="voltar">
+    <a href="telaPrincipal.php"><img src="./img/button (2).png" alt="Botão voltar"></a>
+  </div>
+
+  <header>
+    <h1>"Eventos Sports"</h1>
+    <p>Use sua localização para ver Eventos mais perto de você!!!</p>
+  </header>
+
+  <div class="wrap">
+    <section class="controls" aria-label="Filtros de busca">
+      <div class="field">
+        <label class="label" for="q">Pesquisar (nome/cidade)</label>
+        <input id="q" type="text" placeholder="Eventos em Brasilia-DF..." />
+      </div>
+
+
+
+      <div class="field">
+        <label class="label" for="game">Eventos</label>
+        <select id="game">
+          <option value="">Todos</option>
+          <option value="Academia">Academia</option>
+          <option value="Ciclismo">Ciclismo</option>
+          <option value="Caminhada">Caminhada</option>
+          <option value="Natacao">Natação</option>
+          <option value="Futebol">Futebol</option>
+          <option value="Voleibol">Voleibol</option>
+          <option value="Lazer">Lazer</option>
+          <option value="PCD">PCD</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="label" for="from">Data de</label>
+        <input id="from" type="date" />
+      </div>
+
+      <div class="field">
+        <label class="label" for="to">até</label>
+        <input id="to" type="date" />
+      </div>
+
+      <button id="useLoc" class="btn primary" type="button">📍 Usar minha localização</button>
+      <button id="clearFilters" class="btn ghost" type="button">Limpar filtros</button>
+
+    </section>
+
+    <div class="meta">
+      <div><span id="count">0</span> eventos encontrados</div>
+      <div id="locHint" class="muted">Dica: ative sua localização para ver distâncias</div>
+    </div>
+
+    <div class="table-container">
+      <table class="events-table">
+        <thead>
+          <tr>
+            <th>Evento</th>
+            <th>Local</th>
+            <th>Cidade</th>
+            <th>Data</th>
+            <th>Distância</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="results">
+          <!-- As linhas da tabela serão inseridas aqui pelo JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="empty" class="empty" style="display:none;">Nenhum evento encontrado. Ajuste os filtros.</div>
+  </div>
+</body>
+
+</html>
