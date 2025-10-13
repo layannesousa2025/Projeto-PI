@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Estilos Base
+   ========================================================================== */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão para o corpo */
+    margin: 20px; /* Margem externa em todos os lados */
+    background-color: #1a1a2e; /* Cor de fundo escura */
+    text-align: center; /* Centraliza o texto e elementos inline-block */
+}
+
+
+
+
+/* ==========================================================================
+   Componente: Botão "Altera Foto"
+   ========================================================================== */
+.altera.foto {
+    display: inline-block; /* Permite definir largura/altura e centralizar */
+    background-color: rgb(255, 255, 255); /* Fundo semitransparente */
+    color: rgb(10, 10, 10); /* Cor do texto */
+    padding: 8px 16px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar clicável */
+    margin-top: -10px; /* Sobe o botão para perto da imagem do perfil */
+    margin-bottom: 30px; /* Margem inferior */
+    position: relative; /* Garante que fique acima do fluxo normal */
+    transition: background-color 0.3s ease; /* Transição suave para o hover */
+    
+}
+
+.altera.foto:hover {
+    background-color: rgba(112, 172, 240, 0.8); /* Escurece o fundo ao passar o mouse */
+}
+
+.altera.foto p {
+    margin: 0; /* Remove margem padrão do parágrafo para centralização */
+    font-size: 20px; /* Tamanho da fonte */
+    font-weight: 500; /* Peso da fonte */
+}
+
+/* ==========================================================================
+   Seção: Perfil do Usuário
+   ========================================================================== */
+.perfil-usuario {
+    margin: 60px 0 30px; /* Margem superior, lateral e inferior */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.perfil-usuario img {
+    width: 250px; /* Largura da imagem de perfil */
+    max-width: 80%; /* Garante que a imagem não exceda 80% da largura do pai */
+    margin-bottom: 20px; /* Margem abaixo da imagem */
+}
+
+.perfil-usuario p {
+    font-size: 2rem; /* Tamanho da fonte do nome do usuário */
+    font-weight: bold; /* Peso da fonte */
+    margin: 0; /* Remove margens padrão */
+    color: white; /* Cor do texto */
+}
+
+/* ==========================================================================
+   Seção: Container de Botões de Ação
+   ========================================================================== */
+.botoes {
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    gap: 15px; /* Espaçamento entre os botões */
+    margin-top: 80px; /* Margem superior */
+}
+
+.botoes button,
+.botoes input {
+    width: 240px; /* Largura fixa para os botões */
+    padding: 20px; /* Espaçamento interno */
+    border: none; /* Remove a borda */
+    border-radius: 6px; /* Bordas arredondadas */
+    background-color: #007BFF; /* Cor de fundo azul */
+    color: #0e0d0d; /* Cor do texto (quase preto) */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Peso da fonte */
+    cursor: pointer; /* Muda o cursor para indicar clicável */
+    transition: background-color 0.3s ease; /* Transição suave para o hover */
+    background-position: right 10px center; /* Posição da imagem de fundo */
+    background-repeat: no-repeat; /* Não repete a imagem de fundo */
+    background-size: 20px 20px; /* Tamanho da imagem de fundo */
+    text-align: left; /* Alinha o texto à esquerda */
+    padding-right: 30px; /* Espaçamento à direita para o ícone */
+}
+
+.botoes button:hover,
+.botoes input:hover {
+    background-color: #0056b3; /* Escurece o fundo ao passar o mouse */
+}
+
+/* ==========================================================================
+   Estilos Específicos para Botões com Ícones
+   ========================================================================== */
+#cadastro {
+    background-image: url("./img/Editar.png"); /* Ícone para o botão de cadastro */
+}
+
+#favorito {
+    background-image: url("./img/favorito.png"); /* Ícone para o botão de favoritos */
+}
+
+#contato {
+    background-image: url("./img/telefone.png"); /* Ícone para o botão de contato */
+}
+
+#sair {
+    background-image: url("./img/sair (1).png"); /* Ícone para o botão de sair */
+}
+
+/* ==========================================================================
+   Responsividade
+   ========================================================================== */
+/* Para telas de até 768px de largura (tablets) */
+@media (max-width: 768px) {
+    .perfil-usuario img {
+        width: 200px; /* Reduz a largura da imagem de perfil */
+    }
+
+    .perfil-usuario p {
+        font-size: 1.5rem; /* Reduz o tamanho da fonte do nome do usuário */
+    }
+
+    .botoes button,
+    .botoes input {
+        width: 180px; /* Reduz a largura dos botões */
+        font-size: 14px; /* Reduz o tamanho da fonte dos botões */
+        padding: 10px; /* Ajusta o espaçamento interno */
+    }
+}
+
+/* Para telas de até 480px de largura (smartphones) */
+@media (max-width: 480px) {
+    body {
+        margin: 10px; /* Reduz a margem do corpo */
+    }
+
+    .voltar img {
+        width: 35px; /* Reduz o tamanho do ícone de voltar */
+        height: 35px; /* Reduz o tamanho do ícone de voltar */
+    }
+
+    .perfil-usuario img {
+        width: 150px; /* Reduz ainda mais a largura da imagem de perfil */
+    }
+
+    .perfil-usuario p {
+        font-size: 1.2rem; /* Reduz ainda mais o tamanho da fonte do nome do usuário */
+    }
+
+    .botoes button,
+    .botoes input {
+        width: 150px; /* Reduz ainda mais a largura dos botões */
+        font-size: 13px; /* Reduz ainda mais o tamanho da fonte dos botões */
+        padding: 8px; /* Ajusta o espaçamento interno */
+    }
+}
