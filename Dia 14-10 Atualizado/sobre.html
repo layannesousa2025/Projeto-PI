@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela-sobre</title>
+  <link rel="stylesheet" href="Css/sobre.css">
+  <link rel="stylesheet" href="ajustesAcessibilidade.css">
+</head>
+
+<body>
+  <!-- Botão Voltar -->
+  <div class="voltar">
+    <a href="telaPrincipal.php">
+      <img src="./img/button (2).png" alt="Botão voltar">
+    </a>
+  </div>
+
+  <section>
+    <!-- Cabeçalho -->
+    <div class="dicas">
+      <h1>Dicas De Duvidas</h1>
+      <a href="telaPrincipal.php">
+        <p>Caso queira saber mais dicas, consulte o nosso chatbot! 🤖</p>
+      </a>
+    </div>
+
+    <!-- GRID DE EVENTOS -->
+    <div class="events-grid" id="events-grid">
+
+      
+      <div class="event-card">
+        <div class="event-image">
+          <img src="./img/images-acessibilidade.png" alt="Acessibilidade">
+        </div>
+        
+        <div id="pertoTextAdMain" tabindex="-1" class="">
+        <button aria-label="Ajustes de Texto Pressione Enter para entrar, o tab para continuar" id="pertoTextAdTop"
+            tabindex="0">
+            <div id="pertoTAdTextImgTop">
+                <!-- Ícone principal simplificado -->
+                <div style="font-size: 20px; font-weight: bold;">Aa</div>
+                <div>
+                    <span class="pertoTitle">Ajustes de Texto</span>
+                    <span class="pertoSubTitle">Tamanho, Espaçamento e Formatação de Texto</span>
+                </div>
+            </div>
+            <!-- Ícone de abrir/fechar simplificado -->
+            <span style="font-size: 20px;">▼</span>
+        </button>
+
+        <!-- Painel de Opções (removi o style="max-height: 0px;" para visualização) -->
+        <div id="pertoTextSizeOptions" tabindex="-1" class="pertoOptions" style="max-height: 0px;">
+            <div class="pertoFontOptMain" tabindex="0" aria-label="Tamanho da Letra">
+                <span class="pertoTitle">Tamanho da Letra</span>
+                <div class="pertoFontOptSliderMain">
+                    <button tabindex="0" aria-label="diminuir Tamanho da Letra" class="pertoFontOptButton"
+                        id="perto_slider_letter_size_minus" operation="-">
+                        -
+                    </button>
+                    <div id="perto_font_slider_main_letter_size" class="pertoFontSliderMain">
+                        <input tabindex="-1" class="perto_text_slider" id="perto_font_slider_letter_size" type="range"
+                            min="0" max="100" value="0" step="10">
+                        <output for="perto_font_slider_letter_size" id="perto_font_slider_label_letter_size">0%</output>
+                    </div>
+                    <button tabindex="0" aria-label="aumentar Tamanho da Letra" class="pertoFontOptButton"
+                        id="perto_slider_letter_size_plus" operation="+">
+                        +
+                    </button>
+                </div>
+            </div>
+            <div class="pertoFontOptMain" tabindex="0" aria-label="Espaço Entre Linhas">
+                <span class="pertoTitle">Espaço Entre Linhas</span>
+                <div class="pertoFontOptSliderMain">
+                    <button tabindex="0" aria-label="diminuir Espaço Entre Linhas" class="pertoFontOptButton"
+                        id="perto_slider_line_spacing_minus" operation="-">
+                        -
+                    </button>
+                    <div id="perto_font_slider_main_line_spacing" class="pertoFontSliderMain">
+                        <input tabindex="-1" class="perto_text_slider" id="perto_font_slider_line_spacing" type="range"
+                            min="0" max="100" value="0" step="10">
+                        <output for="perto_font_slider_line_spacing"
+                            id="perto_font_slider_label_line_spacing">0%</output>
+                    </div>
+                    <button tabindex="0" aria-label="aumentar Espaço Entre Linhas" class="pertoFontOptButton"
+                        id="perto_slider_line_spacing_plus" operation="+">
+                        +
+                    </button>
+                </div>
+            </div>
+            <div class="pertoFontOptMain" tabindex="0" aria-label="Espaço Entre Letras">
+                <span class="pertoTitle">Espaço Entre Letras</span>
+                <div class="pertoFontOptSliderMain">
+                    <button tabindex="0" aria-label="diminuir Espaço Entre Letras" class="pertoFontOptButton"
+                        id="perto_slider_letter_spacing_minus" operation="-">
+                        -
+                    </button>
+                    <div id="perto_font_slider_main_letter_spacing" class="pertoFontSliderMain">
+                        <input tabindex="-1" class="perto_text_slider" id="perto_font_slider_letter_spacing"
+                            type="range" min="0" max="100" value="0" step="10">
+                        <output for="perto_font_slider_letter_spacing"
+                            id="perto_font_slider_label_letter_spacing">0%</output>
+                    </div>
+                    <button tabindex="0" aria-label="aumentar Espaço Entre Letras" class="pertoFontOptButton"
+                        id="perto_slider_letter_spacing_plus" operation="+">
+                        +
+                    </button>
+                </div>
+            </div>
+            <div class="pertoFontOptMain pertoIntFunctions">
+                <span class="pertoTitle">Funções</span>
+                <div class="pertoFontOpts pertoFunctions">
+                    <!-- Ícones dos botões foram removidos para simplificar. Eles podem ser adicionados via CSS ou com <img> -->
+                    <button class="pertoFunctionBtn" id="perto_func_format_fonts" tabindex="0">
+                        <div class="pertoTooltip" style="position: absolute; display: none;">Altera o estilo das letras
+                            para fontes mais fáceis de ler.</div>
+                        <span>Formatar Fontes</span>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_underline_titles" tabindex="0">
+                        <div class="pertoTooltip" style="position: absolute; display: none;">Adiciona sublinhado aos
+                            títulos da página para destacá-los visualmente.</div>
+                        <span>Sublinhar Títulos</span>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_uppercase_font" tabindex="0">
+                        <div class="pertoTooltip" style="position: absolute; display: none;">Transforma todos textos
+                            para letras maiúsculas a fim de facilitar a leitura.</div>
+                        <span>Fonte Maiúscula</span>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_format_dyslexia" tabindex="0">
+                        <div class="pertoTooltip" style="position: absolute; display: none;">Ativa uma fonte
+                            desenvolvida para facilitar a leitura de pessoas com dislexia.</div>
+                        <span>Fonte para dislexia</span>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_text_block_width" tabindex="0">
+                        <div class="pertoTooltip" style="position: absolute; display: none;">Ajusta a largura dos blocos
+                            de texto.</div>
+                        <span>Largura dos Blocos de Texto</span>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_align_text" tabindex="0">
+                        <div class="pertoTooltip" style="position: absolute; display: none;">Permite ajustar o
+                            alinhamento do texto.</div>
+                        <span>Alinhamento</span>
+                        <div class="alignment-indicators">
+                            <div class="alignment-dot"></div>
+                            <div class="alignment-dot"></div>
+                            <div class="alignment-dot"></div>
+                            <div class="alignment-dot"></div>
+                        </div>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_between_paragraphs" tabindex="0">
+                        <div class="pertoTooltip" style="position: absolute; display: none;">Aumenta o espaço entre
+                            parágrafos para melhorar a organização.</div>
+                        <span>Espaçamento Entre Parágrafos</span>
+                        <div class="alignment-indicators">
+                            <div class="alignment-dot"></div>
+                            <div class="alignment-dot"></div>
+                            <div class="alignment-dot"></div>
+                        </div>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_between_words" tabindex="0">
+                        <div class="pertoTooltip" style="position: absolute; display: none;">Aumenta o espaço entre as
+                            palavras.</div>
+                        <span>Espaçamento Entre Palavras</span>
+                        <div class="alignment-indicators">
+                            <div class="alignment-dot"></div>
+                            <div class="alignment-dot"></div>
+                            <div class="alignment-dot"></div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOVO PAINEL DE AJUSTES DE CORES -->
+    <div id="pertoTextColorAdMain" tabindex="-1" class="">
+        <button id="pertoTextColorAdTop" aria-label="Ajustes de Cores Pressione Enter para entrar, o tab para continuar"
+            tabindex="0">
+            <div id="pertoColorTextImgTop">
+                <!-- Ícone simplificado -->
+                <div style="font-size: 20px;">🎨</div>
+                <div>
+                    <span class="pertoTitle">Ajustes de Cores</span>
+                    <span class="pertoSubTitle">Cor do Texto, Título, Fundo e Contraste</span>
+                </div>
+            </div>
+            <!-- Ícone de abrir/fechar simplificado -->
+            <span style="font-size: 20px;">▼</span>
+        </button>
+
+        <div id="pertoTextColorOptions" tabindex="-1" class="pertoOptions" style="max-height: 0px;">
+            <div class="pertoColorOptMain pertoIntFunctions" key="color_main">
+                <span class="pertoTitle">Funções</span>
+                <div class="pertoColorsOpts pertoFunctions">
+                    <button class="pertoFunctionBtn" id="perto_func_high_contrast_dark" tabindex="0">
+                        <span>Alto Contraste Escuro</span>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_high_contrast_clear" tabindex="0">
+                        <span>Alto Contraste Claro</span>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_monochromatic" tabindex="0">
+                        <span>Monocromático</span>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_high_saturation" tabindex="0">
+                        <span>Alta Saturação</span>
+                    </button>
+                    <button class="pertoFunctionBtn" id="perto_func_low_saturation" tabindex="0">
+                        <span>Baixa Saturação</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="pertoColorOptMain" key="color_text_main" tabindex="0" aria-label="Cor do Texto">
+                <div>
+                    <span tabindex="-1" class="pertoTitle">Cor do Texto</span>
+                    <button class="pertoResetColorButton" data-target="text"><span>Restaurar Cor</span></button>
+                </div>
+                <div class="pertoColorsOpts">
+                    <button class="pertoColorOpt" style="background-color: #E9D985;" data-color="#E9D985"
+                        data-target="text"></button>
+                    <button class="pertoColorOpt" style="background-color: #E63462;" data-color="#E63462"
+                        data-target="text"></button>
+                    <button class="pertoColorOpt" style="background-color: #C7EFCF;" data-color="#C7EFCF"
+                        data-target="text"></button>
+                    <button class="pertoColorOpt" style="background-color: #FFA0FD;" data-color="#FFA0FD"
+                        data-target="text"></button>
+                    <button class="pertoColorOpt" style="background-color: #197BBD;" data-color="#197BBD"
+                        data-target="text"></button>
+                    <button class="pertoColorOpt" style="background-color: #000000;" data-color="#000000"
+                        data-target="text"></button>
+                    <button class="pertoColorOpt" style="background-color: #FFFFFF;" data-color="#FFFFFF"
+                        data-target="text"></button>
+                </div>
+            </div>
+
+            <div class="pertoColorOptMain" key="color_background_main" tabindex="0" aria-label="Cor do Fundo">
+                <div><span tabindex="-1" class="pertoTitle">Cor do Fundo</span>
+                    <button class="pertoResetColorButton" data-target="background"><span>Restaurar Cor</span></button>
+                </div>
+                <div class="pertoColorsOpts">
+                    <button class="pertoColorOpt" style="background-color: #E9D985;" data-color="#E9D985"
+                        data-target="background"></button>
+                    <button class="pertoColorOpt" style="background-color: #E63462;" data-color="#E63462"
+                        data-target="background"></button>
+                    <button class="pertoColorOpt" style="background-color: #C7EFCF;" data-color="#C7EFCF"
+                        data-target="background"></button>
+                    <button class="pertoColorOpt" style="background-color: #FFA0FD;" data-color="#FFA0FD"
+                        data-target="background"></button>
+                </div>
+            </div>
+        </div>
+        <script src="ajustesAcessibilidade.js"></script>
+    </div>
+    
+      </div>
+
+      <!-- Card Alimentação -->
+      <div class="event-card">
+        <div class="event-image">
+          <img src="./img/imagem-ChampoinsSports tela sobre.png" alt="imagem-ChampoinsSports tela sobre">
+        </div>
+        <div class="event-info">
+          <h2>Dicas Saúde-ChampionsSports</h2>
+          <ul>
+            <li>Mantenha uma dieta equilibrada.</li>
+            <li>Inclua frutas e vegetais nas refeições.</li>
+            <li>Evite alimentos processados e ricos em açúcar.</li>
+            <li>Coma em porções adequadas.</li>
+            <li>Não pule refeições.</li>
+            <li>Consuma proteínas magras.</li>
+            <li>Regula o metabolismo.</li>
+            <li>Evita a fadiga.</li>
+            <li>Melhora a saúde mental.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card Contato -->
+      <div class="event-card">
+        <div class="event-image">
+          <img src="./img/imagem-contato.png" alt="contato">
+        </div>
+        <div class="event-info">
+          <h2>Contato-ChampionsSports</h2>
+          <ul>
+            <li>Email: contato@championssports.com</li>
+            <li>Telefone: (11) 99999-9999</li>
+            <li>Endereço: Qnl-5657575 - Brasilia_DF, Taguatiga</li>
+            <li>CEP:73316400</li>
+            <li>Horário de Atendimento: Segunda a Sexta, das 9h às 18h</li>
+            <li>Redes Sociais:</li>
+            <li>Instagram: @championssports</li>
+            <li>Facebook: facebook.com/championssports</li>
+            <li>Twitter: @championssports</li>
+        
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+
+</html>
