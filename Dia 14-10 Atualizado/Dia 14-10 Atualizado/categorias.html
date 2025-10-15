@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias Esportivas</title>
+    <link rel="stylesheet" href="Css/categoria.css">
+    <!-- Adicionando Font Awesome para o ícone de estrela -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="ajustesAcessibilidade.css">
+</head>
+
+<body>
+    <h1>
+        <div class="voltar">
+            <a href="./telaPrincipal.php"><img src="./img/button (2).png" alt="Botão voltar"></a>
+        </div>
+
+        <div class="usuario" float: right;>
+            <a href="usuario.html">
+                <img src="./img/login2.png" alt="logo2" style="width: 60px; height: 60px; object-fit: contain;">
+            </a>
+
+        </div>
+
+    </h1>
+
+    <h2>Busque Suas Categorias</h2>
+
+    <p style="text-align: center; color: #ccc; margin-top: -10px; margin-bottom: 20px;">
+        Clique na estrela ★ para adicionar uma categoria aos seus favoritos!
+    </p>
+
+    <div class="acebiblidade">
+        <div class="events-grid" id="events-grid">
+
+            <div id="pertoTextAdMain" tabindex="-1" class="">
+                <button aria-label="Ajustes de Texto Pressione Enter para entrar, o tab para continuar"
+                    id="pertoTextAdTop" tabindex="0">
+                    <div id="pertoTAdTextImgTop">
+                        <!-- Ícone principal simplificado -->
+                        <div style="font-size: 20px; font-weight: bold;">Aa</div>
+                        <div>
+                            <span class="pertoTitle">Ajustes de Texto</span>
+                            <span class="pertoSubTitle">Tamanho, Espaçamento e Formatação de Texto</span>
+                        </div>
+                    </div>
+                    <!-- Ícone de abrir/fechar simplificado -->
+                    <span style="font-size: 20px;">▼</span>
+                </button>
+
+                <!-- Painel de Opções (removi o style="max-height: 0px;" para visualização) -->
+                <div id="pertoTextSizeOptions" tabindex="-1" class="pertoOptions" style="max-height: 0px;">
+                    <div class="pertoFontOptMain" tabindex="0" aria-label="Tamanho da Letra">
+                        <span class="pertoTitle">Tamanho da Letra</span>
+                        <div class="pertoFontOptSliderMain">
+                            <button tabindex="0" aria-label="diminuir Tamanho da Letra" class="pertoFontOptButton"
+                                id="perto_slider_letter_size_minus" operation="-">
+                                -
+                            </button>
+                            <div id="perto_font_slider_main_letter_size" class="pertoFontSliderMain">
+                                <input tabindex="-1" class="perto_text_slider" id="perto_font_slider_letter_size"
+                                    type="range" min="0" max="100" value="0" step="10">
+                                <output for="perto_font_slider_letter_size"
+                                    id="perto_font_slider_label_letter_size">0%</output>
+                            </div>
+                            <button tabindex="0" aria-label="aumentar Tamanho da Letra" class="pertoFontOptButton"
+                                id="perto_slider_letter_size_plus" operation="+">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pertoFontOptMain" tabindex="0" aria-label="Espaço Entre Linhas">
+                        <span class="pertoTitle">Espaço Entre Linhas</span>
+                        <div class="pertoFontOptSliderMain">
+                            <button tabindex="0" aria-label="diminuir Espaço Entre Linhas" class="pertoFontOptButton"
+                                id="perto_slider_line_spacing_minus" operation="-">
+                                -
+                            </button>
+                            <div id="perto_font_slider_main_line_spacing" class="pertoFontSliderMain">
+                                <input tabindex="-1" class="perto_text_slider" id="perto_font_slider_line_spacing"
+                                    type="range" min="0" max="100" value="0" step="10">
+                                <output for="perto_font_slider_line_spacing"
+                                    id="perto_font_slider_label_line_spacing">0%</output>
+                            </div>
+                            <button tabindex="0" aria-label="aumentar Espaço Entre Linhas" class="pertoFontOptButton"
+                                id="perto_slider_line_spacing_plus" operation="+">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pertoFontOptMain" tabindex="0" aria-label="Espaço Entre Letras">
+                        <span class="pertoTitle">Espaço Entre Letras</span>
+                        <div class="pertoFontOptSliderMain">
+                            <button tabindex="0" aria-label="diminuir Espaço Entre Letras" class="pertoFontOptButton"
+                                id="perto_slider_letter_spacing_minus" operation="-">
+                                -
+                            </button>
+                            <div id="perto_font_slider_main_letter_spacing" class="pertoFontSliderMain">
+                                <input tabindex="-1" class="perto_text_slider" id="perto_font_slider_letter_spacing"
+                                    type="range" min="0" max="100" value="0" step="10">
+                                <output for="perto_font_slider_letter_spacing"
+                                    id="perto_font_slider_label_letter_spacing">0%</output>
+                            </div>
+                            <button tabindex="0" aria-label="aumentar Espaço Entre Letras" class="pertoFontOptButton"
+                                id="perto_slider_letter_spacing_plus" operation="+">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pertoFontOptMain pertoIntFunctions">
+                        <span class="pertoTitle">Funções</span>
+                        <div class="pertoFontOpts pertoFunctions">
+                            <!-- Ícones dos botões foram removidos para simplificar. Eles podem ser adicionados via CSS ou com <img> -->
+                            <button class="pertoFunctionBtn" id="perto_func_format_fonts" tabindex="0">
+                                <div class="pertoTooltip" style="position: absolute; display: none;">Altera o estilo das
+                                    letras
+                                    para fontes mais fáceis de ler.</div>
+                                <span>Formatar Fontes</span>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_underline_titles" tabindex="0">
+                                <div class="pertoTooltip" style="position: absolute; display: none;">Adiciona sublinhado
+                                    aos
+                                    títulos da página para destacá-los visualmente.</div>
+                                <span>Sublinhar Títulos</span>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_uppercase_font" tabindex="0">
+                                <div class="pertoTooltip" style="position: absolute; display: none;">Transforma todos
+                                    textos
+                                    para letras maiúsculas a fim de facilitar a leitura.</div>
+                                <span>Fonte Maiúscula</span>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_format_dyslexia" tabindex="0">
+                                <div class="pertoTooltip" style="position: absolute; display: none;">Ativa uma fonte
+                                    desenvolvida para facilitar a leitura de pessoas com dislexia.</div>
+                                <span>Fonte para dislexia</span>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_text_block_width" tabindex="0">
+                                <div class="pertoTooltip" style="position: absolute; display: none;">Ajusta a largura
+                                    dos blocos
+                                    de texto.</div>
+                                <span>Largura dos Blocos de Texto</span>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_align_text" tabindex="0">
+                                <div class="pertoTooltip" style="position: absolute; display: none;">Permite ajustar o
+                                    alinhamento do texto.</div>
+                                <span>Alinhamento</span>
+                                <div class="alignment-indicators">
+                                    <div class="alignment-dot"></div>
+                                    <div class="alignment-dot"></div>
+                                    <div class="alignment-dot"></div>
+                                    <div class="alignment-dot"></div>
+                                </div>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_between_paragraphs" tabindex="0">
+                                <div class="pertoTooltip" style="position: absolute; display: none;">Aumenta o espaço
+                                    entre
+                                    parágrafos para melhorar a organização.</div>
+                                <span>Espaçamento Entre Parágrafos</span>
+                                <div class="alignment-indicators">
+                                    <div class="alignment-dot"></div>
+                                    <div class="alignment-dot"></div>
+                                    <div class="alignment-dot"></div>
+                                </div>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_between_words" tabindex="0">
+                                <div class="pertoTooltip" style="position: absolute; display: none;">Aumenta o espaço
+                                    entre as
+                                    palavras.</div>
+                                <span>Espaçamento Entre Palavras</span>
+                                <div class="alignment-indicators">
+                                    <div class="alignment-dot"></div>
+                                    <div class="alignment-dot"></div>
+                                    <div class="alignment-dot"></div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOVO PAINEL DE AJUSTES DE CORES -->
+            <div id="pertoTextColorAdMain" tabindex="-1" class="">
+                <button id="pertoTextColorAdTop"
+                    aria-label="Ajustes de Cores Pressione Enter para entrar, o tab para continuar" tabindex="0">
+                    <div id="pertoColorTextImgTop">
+                        <!-- Ícone simplificado -->
+                        <div style="font-size: 20px;">🎨</div>
+                        <div>
+                            <span class="pertoTitle">Ajustes de Cores</span>
+                            <span class="pertoSubTitle">Cor do Texto, Título, Fundo e Contraste</span>
+                        </div>
+                    </div>
+                    <!-- Ícone de abrir/fechar simplificado -->
+                    <span style="font-size: 20px;">▼</span>
+                </button>
+
+                <div id="pertoTextColorOptions" tabindex="-1" class="pertoOptions" style="max-height: 0px;">
+                    <div class="pertoColorOptMain pertoIntFunctions" key="color_main">
+                        <span class="pertoTitle">Funções</span>
+                        <div class="pertoColorsOpts pertoFunctions">
+                            <button class="pertoFunctionBtn" id="perto_func_high_contrast_dark" tabindex="0">
+                                <span>Alto Contraste Escuro</span>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_high_contrast_clear" tabindex="0">
+                                <span>Alto Contraste Claro</span>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_monochromatic" tabindex="0">
+                                <span>Monocromático</span>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_high_saturation" tabindex="0">
+                                <span>Alta Saturação</span>
+                            </button>
+                            <button class="pertoFunctionBtn" id="perto_func_low_saturation" tabindex="0">
+                                <span>Baixa Saturação</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pertoColorOptMain" key="color_text_main" tabindex="0" aria-label="Cor do Texto">
+                        <div>
+                            <span tabindex="-1" class="pertoTitle">Cor do Texto</span>
+                            <button class="pertoResetColorButton" data-target="text"><span>Restaurar Cor</span></button>
+                        </div>
+                        <div class="pertoColorsOpts">
+                            <button class="pertoColorOpt" style="background-color: #E9D985;" data-color="#E9D985"
+                                data-target="text"></button>
+                            <button class="pertoColorOpt" style="background-color: #E63462;" data-color="#E63462"
+                                data-target="text"></button>
+                            <button class="pertoColorOpt" style="background-color: #C7EFCF;" data-color="#C7EFCF"
+                                data-target="text"></button>
+                            <button class="pertoColorOpt" style="background-color: #FFA0FD;" data-color="#FFA0FD"
+                                data-target="text"></button>
+                            <button class="pertoColorOpt" style="background-color: #197BBD;" data-color="#197BBD"
+                                data-target="text"></button>
+                            <button class="pertoColorOpt" style="background-color: #000000;" data-color="#000000"
+                                data-target="text"></button>
+                            <button class="pertoColorOpt" style="background-color: #FFFFFF;" data-color="#FFFFFF"
+                                data-target="text"></button>
+                        </div>
+                    </div>
+
+                    <div class="pertoColorOptMain" key="color_background_main" tabindex="0" aria-label="Cor do Fundo">
+                        <div><span tabindex="-1" class="pertoTitle">Cor do Fundo</span>
+                            <button class="pertoResetColorButton" data-target="background"><span>Restaurar
+                                    Cor</span></button>
+                        </div>
+                        <div class="pertoColorsOpts">
+                            <button class="pertoColorOpt" style="background-color: #E9D985;" data-color="#E9D985"
+                                data-target="background"></button>
+                            <button class="pertoColorOpt" style="background-color: #E63462;" data-color="#E63462"
+                                data-target="background"></button>
+                            <button class="pertoColorOpt" style="background-color: #C7EFCF;" data-color="#C7EFCF"
+                                data-target="background"></button>
+                            <button class="pertoColorOpt" style="background-color: #FFA0FD;" data-color="#FFA0FD"
+                                data-target="background"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="Buscar categoria...">
+                    <img src="./img/img-pesquisa (1).png" alt="Buscar" class="search-icon">
+                </div>
+
+                <div class="categories-grid">
+                    <div class="category-card" data-category="Ciclismo">
+                        <i class="fas fa-star favorite-star"></i>
+                        <img src="./img/bike.png" alt="Ícone de Ciclismo" class="category-icon">
+                        <span class="category-name">Ciclismo</span>
+                    </div>
+                    <div class="category-card" data-category="Futebol">
+                        <i class="fas fa-star favorite-star"></i>
+                        <img src="./img/jogador.png" alt="Ícone de Futebol" class="category-icon">
+                        <span class="category-name">Futebol</span>
+                    </div>
+                    <div class="category-card" data-category="Voleibol">
+                        <i class="fas fa-star favorite-star"></i>
+                        <img src="./img/volei.png" alt="Ícone de Voleibol" class="category-icon">
+                        <span class="category-name">Voleibol</span>
+                    </div>
+                    <div class="category-card" data-category="Academia">
+                        <i class="fas fa-star favorite-star"></i>
+                        <img src="./img/musculacao.png" alt="Ícone de Musculação" class="category-icon">
+                        <span class="category-name">Academia</span>
+                    </div>
+                    <div class="category-card" data-category="Caminhada">
+                        <i class="fas fa-star favorite-star"></i>
+                        <img src="./img/caminhada.png" alt="Ícone de Caminhada" class="category-icon">
+                        <span class="category-name">Caminhada</span>
+                    </div>
+                    <div class="category-card" data-category="Natação">
+                        <i class="fas fa-star favorite-star"></i>
+                        <img src="./img/natacao.png" alt="Ícone de Natação" class="category-icon">
+                        <span class="category-name">Natação</span>
+                    </div>
+                    <div class="category-card" data-category="Lazer">
+                        <i class="fas fa-star favorite-star"></i>
+                        <img src="./img/lazer.png" alt="Ícone de Lazer" class="category-icon">
+                        <span class="category-name">Lazer</span>
+                    </div>
+                    <div class="category-card" data-category="PCD">
+                        <i class="fas fa-star favorite-star"></i>
+                        <img src="./img/rodas.png" alt="Ícone de Esportes Adaptados (PCD)" class="category-icon">
+                        <span class="category-name">PCD</span>
+                    </div>
+                    <div class="category-card" data-category="Tênis">
+                        <i class="fas fa-star favorite-star"></i>
+                        <img src="./img/lazer.png" alt="Ícone de Tênis" class="category-icon">
+                        <!-- Usando ícone de lazer como exemplo -->
+                        <span class="category-name">Tênis</span>
+                    </div>
+                    <div class="category-card" data-category="Capoeira">
+                        <i class="fas fa-star favorite-star"></i>
+                        <img src="./img/capoeira.jpg" alt="Ícone de Capoeira" class="category-icon">
+                        <span class="category-name">Capoeira</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const categoryCards = document.querySelectorAll('.category-card');
+                    const searchBar = document.querySelector('.search-bar');
+
+                    // Função para atualizar a aparência das estrelas com base em uma lista de favoritos
+                    function updateStars(favoriteList = []) {
+                        categoryCards.forEach(card => {
+                            const category = card.dataset.category;
+                            const star = card.querySelector('.favorite-star');
+                            if (favoriteList.includes(category)) {
+                                star.classList.add('favorited');
+                            } else {
+                                star.classList.remove('favorited');
+                            }
+                        });
+                    }
+
+                    // Função para salvar o favorito no banco de dados
+                    async function toggleFavorite(category, starElement) {
+                        const isFavorited = starElement.classList.contains('favorited');
+                        const action = isFavorited ? 'remove' : 'add';
+
+                        try {
+                            const response = await fetch('categorias.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ categoria: category, acao: action }),
+                            });
+
+                            const result = await response.json();
+
+                            if (response.ok && result.success) {
+                                // Redireciona para a página de favoritos após o sucesso
+                                window.location.href = 'favoritos.php';
+                            } else {
+                                // Exibe um alerta se o usuário não estiver logado ou se ocorrer outro erro
+                                alert(result.message || 'Ocorreu um erro. Tente novamente.');
+                            }
+                        } catch (error) {
+                            console.error('Erro na requisição:', error);
+                            alert('Não foi possível conectar ao servidor.');
+                        }
+                    }
+
+                    // Carrega os favoritos do banco de dados quando a página é carregada
+                    async function loadFavorites() {
+                        try {
+                            const response = await fetch('get_favoritos.php');
+                            if (response.ok) {
+                                const data = await response.json();
+                                if (data.success) {
+                                    updateStars(data.favorites);
+                                }
+                            }
+                            // Se não estiver logado ou der erro, as estrelas simplesmente ficam vazias.
+                        } catch (error) {
+                            console.error("Não foi possível carregar os favoritos:", error);
+                        }
+                    }
+
+                    // Adiciona os eventos de clique
+                    categoryCards.forEach(card => {
+                        const category = card.dataset.category;
+                        const star = card.querySelector('.favorite-star');
+
+                        // Evento de clique na estrela
+                        star.addEventListener('click', (event) => {
+                            event.stopPropagation(); // Impede que o clique na estrela ative o link do card
+                            toggleFavorite(category, star);
+                        });
+
+                        // Evento de clique no card para navegar para os eventos
+                        card.addEventListener('click', () => {
+                            window.location.href = `eventos.html?game=${category}`;
+                        });
+                    });
+
+                    // Adiciona a funcionalidade de busca
+                    searchBar.addEventListener('input', function (e) {
+                        const searchTerm = e.target.value.toLowerCase();
+
+                        categoryCards.forEach(card => {
+                            const categoryName = card.dataset.category.toLowerCase();
+                            if (categoryName.includes(searchTerm)) {
+                                card.style.display = ''; // Mostra o card se corresponder
+                            } else {
+                                card.style.display = 'none'; // Esconde o card se não corresponder
+                            }
+                        });
+                    });
+
+                    // Carrega os favoritos do usuário ao iniciar a página
+                    loadFavorites();
+                });
+            </script>
+
+            <script src="ajustesAcessibilidade.js"></script>
+</body>
+
+</html>
