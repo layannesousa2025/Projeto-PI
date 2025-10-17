@@ -1,0 +1,196 @@
+:root {
+    --primary: #6e00ff;
+    --secondary: #ff00aa;
+    --dark: #1a1a2e;
+    --light: #f8f9fa;
+    --card-bg: #2d2d46;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Cabeçalho da Página */
+.page-header {
+    display: flex;
+    align-items: center;
+    position: relative; /* Necessário para o posicionamento absoluto do h2 */
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-header .back-button img {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.page-header .back-button:hover img {
+    transform: scale(1.1);
+}
+
+.page-header h2 {
+    /* Centraliza o título no cabeçalho */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8rem;
+}
+
+/* Container de Filtros */
+.filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-item {
+    flex: 1 1 200px; /* Flex-grow, flex-shrink, base width */
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-item label {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ccc;
+}
+
+.filter-item input,
+.filter-item select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #3a3a5a;
+    color: var(--light);
+    font-size: 1rem;
+}
+
+.filter-item input:focus,
+.filter-item select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(110, 0, 255, 0.3);
+}
+
+.filter-item button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+    align-self: flex-end; /* Alinha o botão na parte inferior do item */
+    height: 42px; /* Mesma altura dos inputs */ 
+}
+
+.filter-actions {
+    flex: 1 1 200px;
+    flex-basis: 100%; /* Garante que ocupe a largura total em telas menores */
+    /* O botão agora se alinha ao topo por padrão, junto com os inputs */
+}
+
+#clearFilters {
+    width: 100%;
+    background-color: #5973e4;
+    color: white;
+    height: 42px; /* Garante a mesma altura dos inputs */
+    align-self: flex-end; /* Alinha o botão ao final do espaço do seu container */
+}
+
+#clearFilters:hover {
+    background-color: #777;
+}
+
+/* Cabeçalho dos Resultados */
+.results-header {
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+#count {
+    font-weight: bold;
+    color: var(--light);
+}
+
+/* Grade de Eventos (copiado de telaPrincipal.css para consistência) */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.event-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.event-info {
+    padding: 1.5rem;
+}
+
+.event-info h3 {
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.event-info p {
+    color: #aaa;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.event-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.event-actions {
+    padding: 0 1.5rem 1.5rem;
+}
+
+.event-actions button {
+    width: 100%;
+    padding: 10px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
