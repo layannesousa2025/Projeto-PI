@@ -1,0 +1,413 @@
+/* =========================================================
+   RESET E BASE
+========================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+.header {
+    background-color: #410d53;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Compensação para o header fixo */
+main, section, .content {
+    margin-top: 80px;
+}
+
+main {
+    flex: 1;
+}
+
+/* ===== LOGO ===== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.logo p {
+    color: #fff;
+    margin-left: 10px;
+}
+
+.logo img {
+    border: 2px solid #fff;
+    border-radius: 8px;
+    padding: 2px;
+}
+
+/* ===== MENU DE NAVEGAÇÃO ===== */
+.nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 50px;
+}
+
+.nav li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== ÍCONE DO USUÁRIO ===== */
+.usuario {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* =========================================================
+   MENU MOBILE (HAMBÚRGUER)
+========================================================= */
+.menu-toggle,
+.menu-icon {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        z-index: 1001;
+    }
+
+    .hamburguer,
+    .hamburguer::before,
+    .hamburguer::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: white;
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+    }
+
+    .hamburguer {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .hamburguer::before {
+        top: -8px;
+    }
+
+    .hamburguer::after {
+        top: 8px;
+    }
+
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #444;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .nav li a {
+        padding: 15px 20px;
+        border-bottom: 1px solid #555;
+    }
+
+    .nav li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Ação ao abrir o menu */
+    .menu-toggle:checked ~ .nav {
+        max-height: 300px;
+    }
+
+    /* Ícone animado em “X” */
+    .menu-toggle:checked ~ .menu-icon .hamburguer {
+        transform: rotate(45deg);
+        background: transparent;
+    }
+
+    .menu-toggle:checked ~ .menu-icon .hamburguer::before {
+        transform: rotate(90deg) translate(8px, 0);
+    }
+
+    .menu-toggle:checked ~ .menu-icon .hamburguer::after {
+        transform: rotate(90deg) translate(-8px, 0);
+    }
+}
+
+/* =========================================================
+   TÍTULOS E SUBTÍTULOS
+========================================================= */
+.page-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #b953ec;
+}
+
+.page-subtitle {
+    text-align: center;
+    color: #ccc;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.favorites-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+.acessibilidade {
+    margin-bottom: 20px;
+}
+
+.paineis-acessibilidade {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.paineis-acessibilidade #pertoTextAdMain,
+.paineis-acessibilidade #pertoTextColorAdMain {
+    margin: 0;
+}
+
+/* =========================================================
+   CONTAINER E BUSCA
+========================================================= */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px auto 20px;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    max-width: 300px;
+    width: 95%;
+    padding: 5px 10px;
+}
+
+.search-bar {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.search-icon {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+@media (max-width: 420px) {
+    .search-container {
+        max-width: 250px;
+    }
+}
+
+/* =========================================================
+   GRID DE CATEGORIAS
+========================================================= */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    margin-top: 20px;
+}
+
+/* ===== CARDS ===== */
+.category-card {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    text-decoration: none;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== ESTRELA DE FAVORITOS ===== */
+.favorite-star {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #7b7979;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.favorite-star:hover {
+    transform: scale(1.2);
+}
+
+.favorite-star.favorited {
+    color: #ffc107;
+}
+
+/* ===== ÍCONE E TEXTO ===== */
+.category-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: #fff;
+}
+
+.category-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+footer {
+    background: rgba(141, 152, 235, 0.15);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem 2rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-about h4,
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+    color: #b953ec;
+    margin-bottom: 1rem;
+}
+
+.footer-links a,
+.footer-contact a {
+    color: #dddada;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-contact ul {
+    list-style: none;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #ff9800;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #dddada;
+}
