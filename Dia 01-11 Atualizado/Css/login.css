@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a2e;
+ 
+}
+
+.voltar{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.voltar img{
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+form {
+    max-width: 400px;
+    /*largura maxima do meu formulario*/
+    background-color: #fff;
+    /* cor de fundo do formulario*/
+    padding: 55px;
+    /*espacamento dentro do formulario*/
+    border-radius: 10px;
+    /*borda do formulario redondato*/
+    margin: 10px;
+    text-align: justify;
+   
+   
+}
+
+h1 {
+    text-align: center;
+    /*centralizei o titulo do formulario*/
+    margin-bottom: 20px;
+    /*espaçamento entre o titulo e a label*/
+    color: rgb(19, 20, 20);
+
+}
+
+label {
+    display: block;
+    /*colocar todo formulario um em baixo do outro*/
+    margin-bottom: 3px;
+    /*espaçamento entre linhas*/
+    font-weight: bold;
+    /*colocar a cor da letra em netrito*/
+   
+}
+
+input {
+    width: 100%;
+    /*largura do input*/
+    padding: 8px;
+    /*espamento no input*/
+    border-radius: 8px;
+    /*arrendondar borda do input*/
+    color: rgb(82, 75, 82);
+    /*cor da letra do input*/
+    font-size: 18px;
+    /*tamanho da letra do input*/
+    font-weight: bold;
+    /*letra do input em negrito*/
+    margin-bottom: 20px;
+    /*espaçamento entre linhas*/
+   font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+button {
+    width: 70%;
+    /*tamanhao do butao*/
+    height: 30px;
+    /*lagura*/
+    border-radius: 8px;
+    /*as bordas redondas*/
+    border:none;
+    /*serve para tira as bordas do butao*/
+    background-color: #4a90e2; /* Cor do rádio quando selecionado */
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    /*passa o mouse */
+
+}
+
+button[type="reset"]{
+    background-color: rgb(221, 95, 95);
+    margin-top: 10px;
+}
+
+button:hover{
+    opacity: 0.9;
+}
+
+.remember-me {
+    display: flex; /* Alinha o checkbox e o texto na mesma linha */
+    align-items: center; /* Centraliza verticalmente */
+    margin-bottom: 20px; /* Espaçamento abaixo */
+    font-weight: normal; /* Remove o negrito do label geral */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+/* Ajusta o checkbox dentro do label */
+.remember-me input[type="checkbox"] {
+    width: auto; /* Remove a largura fixa */
+    margin-bottom: 0; /* Remove a margem inferior do input geral */
+    padding: 0; /* Remove o preenchimento do input geral */
+    margin-right: 8px; /* Adiciona espaço entre o checkbox e o texto */
+}
+#botao-principal{
+    text-align: center;
+    margin: 0px;
+  
+}

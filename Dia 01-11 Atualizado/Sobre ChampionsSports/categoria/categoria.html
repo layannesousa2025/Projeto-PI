@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela-Categoria</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="categoria.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ======== CABEÇALHO ======== -->
+    <header class="header">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+        <a href="./telaPrincipal.php" class="logo">
+            <img src="./img/Logo.png" alt="Logo ChampionsSports" width="50" height="50">
+            <span>ChampionsSports</span>
+        </a>
+
+        <label for="menu-toggle" class="menu-icon">
+            <span class="hamburguer"></span>
+        </label>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="telaPrincipal.php">Início</a></li>
+                <li><a href="categorias.php">Categorias</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="usuario">
+            <a href="usuario.html" aria-label="Acessar área do usuário">
+                <img src="./img/login2.png" alt="Usuário" width="60" height="60">
+            </a>
+        </div>
+    </header>
+
+    <!-- ======== CONTEÚDO PRINCIPAL ======== -->
+    <main>
+        <section class="categories-section">
+            <h1>Busque Suas Categorias</h1>
+            <p class="subtitle">
+                Clique na estrela ★ para adicionar uma categoria aos seus favoritos!
+            </p>
+
+            <!-- ======== BARRA DE BUSCA ======== -->
+            <div class="container">
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="Buscar categoria..."
+                        aria-label="Buscar categoria">
+                    <img src="./img/img-pesquisa (1).png" alt="" class="search-icon" aria-hidden="true">
+                </div>
+
+                <!-- ======== GRID DE CATEGORIAS ======== -->
+                <div class="categories-grid">
+                    <div class="category-card" data-category="Ciclismo">
+                        <i class="fas fa-star favorite-star" aria-label="Adicionar aos favoritos"></i>
+                        <img src="./img/bike.png" alt="Ciclismo" class="category-icon">
+                        <span class="category-name">Ciclismo</span>
+                    </div>
+                    <div class="category-card" data-category="Futebol">
+                        <i class="fas fa-star favorite-star" aria-label="Adicionar aos favoritos"></i>
+                        <img src="./img/jogador.png" alt="Futebol" class="category-icon">
+                        <span class="category-name">Futebol</span>
+                    </div>
+                    <div class="category-card" data-category="Voleibol">
+                        <i class="fas fa-star favorite-star" aria-label="Adicionar aos favoritos"></i>
+                        <img src="./img/volei.png" alt="Voleibol" class="category-icon">
+                        <span class="category-name">Voleibol</span>
+                    </div>
+                    <div class="category-card" data-category="Caminhada">
+                        <i class="fas fa-star favorite-star" aria-label="Adicionar aos favoritos"></i>
+                        <img src="./img/caminhada.png" alt="Caminhada" class="category-icon">
+                        <span class="category-name">Caminhada</span>
+                    </div>
+                    <div class="category-card" data-category="Academia">
+                        <i class="fas fa-star favorite-star" aria-label="Adicionar aos favoritos"></i>
+                        <img src="./img/musculacao.png" alt="Academia" class="category-icon">
+                        <span class="category-name">Academia</span>
+                    </div>
+                    <div class="category-card" data-category="Natação">
+                        <i class="fas fa-star favorite-star" aria-label="Adicionar aos favoritos"></i>
+                        <img src="./img/natacao.png" alt="Natação" class="category-icon">
+                        <span class="category-name">Natação</span>
+                    </div>
+                    <div class="category-card" data-category="Lazer">
+                        <i class="fas fa-star favorite-star" aria-label="Adicionar aos favoritos"></i>
+                        <img src="./img/lazer.png" alt="Lazer" class="category-icon">
+                        <span class="category-name">Lazer</span>
+                    </div>
+                    <div class="category-card" data-category="PCD">
+                        <i class="fas fa-star favorite-star" aria-label="Adicionar aos favoritos"></i>
+                        <img src="./img/rodas.png" alt="Esportes para PCD" class="category-icon">
+                        <span class="category-name">PCD</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======== RODAPÉ ======== -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-columns">
+                <div class="footer-about">
+                    <h4>Sobre Nós</h4>
+                    <p>O ChampionsSports conecta você aos melhores eventos esportivos e promoções na sua região.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="telaPrincipal.php">Início</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contato@ChampionsSports.com">contato@ChampionsSports.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+5561999999999">(61) 99999-9999</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            QNL-5657575 - Taguatinga, Brasília-DF
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Siga-nos</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 ChampionsSports. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======== SCRIPTS ======== -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
