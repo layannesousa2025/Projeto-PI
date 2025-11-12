@@ -1,0 +1,176 @@
+/* ==========================================================================
+   Estilos Base
+   ========================================================================== */
+body {
+    font-family: 'Arial', sans-serif; /* Fonte padrão */
+    margin: 0; /* Remove margem padrão do body */
+    padding: 20px; /* Espaçamento interno para o conteúdo não colar nas bordas */
+    background-color: #1a1a2e; /* Cor de fundo escura, consistente com usuario.css */
+    color: #e0e0e0; /* Cor do texto padrão para contraste */
+    display: flex; /* Usa flexbox para centralizar o formulário */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+    box-sizing: border-box; /* Inclui padding e borda na largura/altura total */
+}
+
+/* ==========================================================================
+   Componente: Botão Voltar
+   ========================================================================== */
+.voltar {
+    position: absolute; /* Posicionamento absoluto em relação ao body */
+    top: 20px; /* Distância do topo */
+    left: 20px; /* Distância da esquerda */
+    z-index: 10; /* Garante que fique acima de outros elementos */
+}
+
+.voltar img {
+    width: 40px; /* Largura do ícone */
+    height: 40px; /* Altura do ícone */
+    background-color: #fff; /* Fundo branco para o ícone */
+    border-radius: 80%; /* Torna o fundo circular */
+    padding: 5px; /* Espaçamento interno para o ícone */
+    transition: transform 0.3s ease; /* Transição suave para o hover */
+}
+
+.voltar img:hover {
+    transform: scale(1.1); /* Aumenta um pouco o ícone ao passar o mouse */
+}
+
+/* ==========================================================================
+   Seção: Formulário de Edição
+   ========================================================================== */
+.form-container {
+    background-color: #2a2a4a; /* Fundo mais claro para o formulário */
+    padding: 40px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+    width: 100%; /* Ocupa a largura total disponível */
+    max-width: 500px; /* Largura máxima para o formulário */
+    text-align: center; /* Centraliza o título */
+    box-sizing: border-box;
+}
+
+.form-container h1 {
+    color: #007BFF; /* Cor do título, consistente com botões */
+    margin-bottom: 30px; /* Margem abaixo do título */
+    font-size: 2.2em; /* Tamanho da fonte do título */
+}
+
+/* Estilos para mensagens de sucesso e erro */
+.mensagem {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mensagem.sucesso {
+    background-color: #28a745; /* Verde para sucesso */
+    color: #fff;
+}
+
+.mensagem.erro {
+    background-color: #dc3545; /* Vermelho para erro */
+    color: #fff;
+}
+
+/* ==========================================================================
+   Componente: Grupos de Formulário (Label + Input)
+   ========================================================================== */
+.form-group {
+    margin-bottom: 20px; /* Espaçamento entre os grupos de formulário */
+    text-align: left; /* Alinha o texto à esquerda dentro do grupo */
+}
+
+.form-group label {
+    display: block; /* Faz o label ocupar sua própria linha */
+    margin-bottom: 8px; /* Espaçamento entre o label e o input */
+    font-weight: bold; /* Texto do label em negrito */
+    color: #bbbbbb; /* Cor do label */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group input[type="tel"],
+.form-group input[type="password"] {
+    width: 100%; /* Ocupa a largura total do container */
+    padding: 12px; /* Espaçamento interno */
+    border: 1px solid #444; /* Borda sutil */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #3a3a5a; /* Fundo do input */
+    color: #e0e0e0; /* Cor do texto do input */
+    font-size: 1em; /* Tamanho da fonte */
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+}
+
+.form-group input:focus {
+    outline: none; /* Remove o contorno padrão */
+    border-color: #007BFF; /* Borda azul ao focar */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Sombra azul ao focar */
+}
+
+/* Estilo para inputs desabilitados */
+.form-group input[disabled] {
+    background-color: #444; /* Fundo mais escuro para campos desabilitados */
+    color: #999; /* Texto mais claro para campos desabilitados */
+    cursor: not-allowed; /* Cursor de "não permitido" */
+}
+
+/* ==========================================================================
+   Componente: Botão de Envio
+   ========================================================================== */
+.submit-btn {
+    width: 100%; /* Ocupa a largura total */
+    padding: 15px; /* Espaçamento interno */
+    background-color: #007BFF; /* Cor de fundo azul */
+    color: #fff; /* Cor do texto branco */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 1.1em; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    cursor: pointer; /* Muda o cursor para indicar clicável */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+    margin-top: 20px; /* Margem superior */
+}
+
+.submit-btn:hover {
+    background-color: #0056b3; /* Escurece o azul ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "levantar" o botão */
+}
+
+/* ==========================================================================
+   Responsividade
+   ========================================================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduz o padding do body em telas menores */
+    }
+
+    .voltar {
+        top: 10px;
+        left: 10px;
+    }
+
+    .voltar img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .form-container {
+        padding: 25px; /* Reduz o padding do formulário */
+    }
+
+    .form-container h1 {
+        font-size: 1.8em; /* Reduz o tamanho do título */
+        margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .submit-btn {
+        font-size: 0.95em; /* Reduz o tamanho da fonte dos inputs e botão */
+    }
+}
