@@ -18,23 +18,23 @@ body {
    Componente: Botão Voltar
    ========================================================================== */
 .voltar {
-    position: absolute; /* Posicionamento absoluto em relação ao body */
-    top: 20px; /* Distância do topo */
-    left: 20px; /* Distância da esquerda */
-    z-index: 10; /* Garante que fique acima de outros elementos */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
 }
 
 .voltar img {
-    width: 40px; /* Largura do ícone */
-    height: 40px; /* Altura do ícone */
-    background-color: #fff; /* Fundo branco para o ícone */
-    border-radius: 80%; /* Torna o fundo circular */
-    padding: 5px; /* Espaçamento interno para o ícone */
-    transition: transform 0.3s ease; /* Transição suave para o hover */
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+    background-color: #fff;
+    border-radius: 80%;
+    padding: 5px;
 }
 
 .voltar img:hover {
-    transform: scale(1.1); /* Aumenta um pouco o ícone ao passar o mouse */
+    transform: scale(1.1);
 }
 
 /* ==========================================================================

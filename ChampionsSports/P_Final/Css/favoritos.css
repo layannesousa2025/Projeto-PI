@@ -16,12 +16,32 @@ body {
   align-items: center;
 }
 
-/* ======== BOTÃO VOLTAR ======== */
-.voltar-container {
+/* ======== CABEÇALHO ======== */
+.header-favoritos {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 0;
+  left: 0;
 }
+
+.usuario-container .foto-perfil {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  transition: transform 0.3s ease;
+}
+
+.usuario-container .foto-perfil:hover {
+  transform: scale(1.1);
+}
+
+
 
 .btn-voltar {
   color: #fff;

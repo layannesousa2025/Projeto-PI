@@ -1,5 +1,17 @@
 const qInput = document.getElementById('q');
 const gameSelect = document.getElementById('game');
+
+// Mapeamento de categorias para imagens
+const categoryImageMap = {
+    'Futebol': '../img/jogador.png',
+    'Voleibol': '../img/volei.png',
+    'Academia': '../img/musculacao.png',
+    'Caminhada': '../img/caminhada.png',
+    'Natação': '../img/natacao.png',
+    'Ciclismo': '../img/bike.png',
+    'Lazer': '../img/lazer.png',
+    'PCD': '../img/rodas.png'
+};
 const fromInput = document.getElementById('from');
 const toInput = document.getElementById('to');
 const clearBtn = document.getElementById('clearFilters');
@@ -67,9 +79,12 @@ function updateGrid(lista) {
         // CORREÇÃO: Usar o campo 'data_eventos' que vem diretamente da API.
         const dataFormatada = new Date(ev.data_eventos + 'T00:00:00').toLocaleDateString('pt-BR');
 
+        // Obtém a imagem da categoria, ou uma imagem padrão se não encontrada
+        const categoryImgSrc = categoryImageMap[ev.categorias_esportes] || '../img/default_category.png'; // Assumindo uma imagem padrão
+
         card.innerHTML = `
             <div class="event-content">
-                <span class="event-category">${ev.categorias_esportes}</span> <!-- CORREÇÃO: Usar nome original do campo -->
+                <img src="${categoryImgSrc}" alt="Ícone de ${ev.categorias_esportes}" class="event-category-icon">
                 <h3 class="event-title">${ev.tipo_eventos}</h3> <!-- CORREÇÃO: Usar nome original do campo -->
                 <div class="event-info">
                     <div><i class="fas fa-calendar"></i> ${dataFormatada}</div>

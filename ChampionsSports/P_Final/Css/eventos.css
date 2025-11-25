@@ -247,6 +247,8 @@
 
         .event-category {
             display: inline-block;
+            display: inline-flex; /* Alterado para flex para melhor alinhamento */
+            align-items: center;  /* Alinha o ícone e o texto verticalmente */
             padding: 0.25rem 0.75rem;
             background: rgba(37, 99, 235, 0.2);
             color: var(--primary-color);
@@ -254,6 +256,7 @@
             font-size: 0.75rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
+            gap: 0.5rem; /* Adiciona um espaço entre o ícone e o texto */
         }
 
         .event-title {
