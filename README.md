@@ -35,6 +35,7 @@ Categorias e eventos
 
 Localização de atividades próximas
 
+
 ⚠️ Problema Identificado
 
 Com a vida corrida e a falta de centralização de informações esportivas, muitos usuários têm dificuldade para encontrar atividades adequadas.
@@ -47,6 +48,7 @@ Informações organizadas em um único lugar
 
 Uma experiência intuitiva, rápida e personalizada
 
+
 🎯 Objetivos do Projeto
 
 Facilitar a escolha de esportes
@@ -56,6 +58,7 @@ Tornar simples a busca por eventos
 Dar visibilidade a torneios locais
 
 Aproximar jogadores, equipes e organizadores
+
 
 🛠️ Desenvolvimento
 🔧 Backend
@@ -166,8 +169,3 @@ Execute o projeto
 
 Adroind Studio...
 
-Monitoramento contínuo
-
-Correções, melhorias e novas funcionalidades
-
-Atualizações constantes
