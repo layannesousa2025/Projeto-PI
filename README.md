@@ -95,17 +95,9 @@ MySQL (XAMPP)
 
 Visual Studio Code
 
-🛡️ Boas Práticas
 
-Código limpo
 
-Uso de PDO (ou mysqli com prepared statements)
-
-Estrutura organizada (MVC básico)
-
-Validações no cliente e servidor
-
-▶️ Como Rodar
+▶️ Como Rodar web
 
 Instale o XAMPP
 
@@ -118,9 +110,9 @@ Coloque o projeto em htdocs/
 Acesse:
 
 http://localhost/ChampionsSports
-
-
 Configure ConexaoMysql.php
+
+
 
 🖥️ Desktop — Java + NetBeans + MySQL
 🧰 Tecnologias
@@ -166,6 +158,7 @@ Adicione os plugins
 Configure ConexaoMysql.java
 
 Execute o projeto
+
 
 📱 Mobile — Android + Java + MySQL
 🧰 Tecnologias
