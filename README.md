@@ -76,6 +76,7 @@ Mobile
 
 Desktop
 
+
 🌐 Web — PHP + VSC + MySQL
 📌 Estrutura
 
@@ -85,7 +86,7 @@ Tela inicial com categorias e eventos
 
 Rodapé com informações de contato
 
-🧰 Tecnologias
+🧰 Tecnologias ultilizada
 
 HTML, CSS, JavaScript
 
@@ -160,66 +161,10 @@ Configure ConexaoMysql.java
 Execute o projeto
 
 
-📱 Mobile — Android + Java + MySQL
-🧰 Tecnologias
-
-Android Studio
-
-Java
-
-MySQL
-
-🧩 Funcionalidades
-
-Login e criação de conta
-
-Tela principal
-
-Menu
-
-Editar usuário
-
-Pesquisar categorias
-
-Buscar eventos
-
-Cadastrar eventos
-
-Acessibilidade
-
-Localização por mapas
-
-CRUD completo de dados
-
-▶️ Pré-requisitos
-
-Android Studio
-
-Servidor com MySQL
-
-Banco champions_sport importado
-
-
-🧪 Testes e Validação
-
-Testes de usabilidade
-
-Testes de desempenho
-
-Feedback de usuários
-
-Validação de:
-
-Geolocalização
-
-Cadastro/Login
-
-Filtros por distância e categoria
-
 
 🚀 Implantação e Manutenção
 
-Lançamento para primeiros usuários
+Adroind Studio...
 
 Monitoramento contínuo
 
