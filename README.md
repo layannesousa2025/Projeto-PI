@@ -1,73 +1,72 @@
 📝 Descrição Geral
 
-O ChampionsSports é um conjunto de aplicações integradas — Website, Mobile e Desktop — desenvolvidas para oferecer aos usuários uma experiência completa no universo esportivo.
+O ChampionsSports é um ecossistema de aplicações integradas — Web, Mobile e Desktop — desenvolvido para oferecer aos usuários uma experiência completa e centralizada no universo esportivo.
 
-A plataforma permite:
+A plataforma possibilita:
 
-Escolher esportes favoritos
+Seleção de esportes favoritos
 
-Ver categorias e eventos
+Visualização de categorias e eventos esportivos
 
-Usar um localizador inteligente para encontrar atividades próximas
+Localização inteligente de atividades próximas
 
-Acessar treinos, eventos futuros e informações diversas
+Acesso a treinos, eventos futuros e informações relevantes
 
-O projeto cobre todo o fluxo do usuário: navegação, pesquisa, avaliação e interação com funcionalidades personalizadas.
+O projeto contempla todo o fluxo do usuário, desde a navegação e pesquisa até a interação com funcionalidades personalizadas, proporcionando uma experiência intuitiva e eficiente.
 
 🏆 Principais Funcionalidades (Front-end & Back-end)
 🔐 Autenticação e Gestão de Usuários
 
-Cadastro
+Cadastro de usuários
 
-Login
+Login seguro
 
 Recuperação de conta
 
-Edição de dados
+Edição de dados pessoais
 
 🔎 Navegação e Descoberta
 
-Sistema de busca e filtros
+Sistema de busca com filtros
 
-Favoritos
+Gerenciamento de favoritos
 
-Categorias e eventos
+Visualização de categorias e eventos
 
-Localização de atividades próximas
-
+Localizador de atividades esportivas próximas
 
 ⚠️ Problema Identificado
 
-Com a vida corrida e a falta de centralização de informações esportivas, muitos usuários têm dificuldade para encontrar atividades adequadas.
+Devido à rotina acelerada e à falta de centralização de informações esportivas, muitos usuários enfrentam dificuldades para encontrar atividades, eventos e torneios adequados.
 
-O ChampionsSports – Sports is Life resolve isso oferecendo:
+O ChampionsSports – Sports is Life resolve esse problema ao oferecer:
 
-Um localizador automático de eventos próximos
+Localização automática de eventos próximos
 
-Informações organizadas em um único lugar
+Informações organizadas em um único ambiente
 
-Uma experiência intuitiva, rápida e personalizada
-
+Uma experiência rápida, intuitiva e personalizada
 
 🎯 Objetivos do Projeto
 
 Facilitar a escolha de esportes
 
-Tornar simples a busca por eventos
+Simplificar a busca por eventos esportivos
 
-Dar visibilidade a torneios locais
+Dar visibilidade a torneios e competições locais
 
-Aproximar jogadores, equipes e organizadores
-
+Aproximar atletas, equipes e organizadores
 
 🛠️ Desenvolvimento
 🔧 Backend
 
 Gerenciamento de usuários e conteúdos
 
-Conexão com MySQL
+Integração com banco de dados MySQL
 
-Regras de negócio e segurança
+Implementação de regras de negócio
+
+Segurança e controle de acesso
 
 🎨 Frontend
 
@@ -79,13 +78,12 @@ Mobile
 
 Desktop
 
-
-
-
-
 🚀 Implantação e Manutenção
 
-Adroind Studio...
+Desenvolvimento Mobile realizado com Android Studio
 
-Estamos no Momento dispobilizado web, desktop...
+Atualmente, o projeto encontra-se disponível nas versões:
 
+Web
+
+Desktop
