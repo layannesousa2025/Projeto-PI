@@ -1,5 +1,4 @@
-Readme 
-Projeto Android - Champions Sports, Desktop, Web e Mobile com MySQL 
+Readme
 
 
 Projeto - Champions Sports, Desktop. 
@@ -68,4 +67,5 @@ Abra o seu  Apache NetBeans e MySQL.
 No NetBeans abra a pasta  OpenProject,copie a pasta do projeto /ChampionsSports para o diretório htdocs.
 Verifique o arquivo ConexaoMysql.php e ajuste host/porta/usuário/senha conforme seu ambiente.
 Verifique os plugins do NetBeans.
+
 Teste rotas principais: página inicial, tela de login, cadastro e administração. 
