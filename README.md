@@ -83,13 +83,6 @@ Interfaces intuitivas e responsivas desenvolvidas para:
 
 ---
 
-## 👩‍💻 Autora
-
-**Layanne Sousa**
-Técnica em Análise e Desenvolvimento de Sistemas
-Foco em Qualidade de Software (QA), Automação de Testes e Inteligência Artificial aplicada à qualidade
-
----
 
 > *ChampionsSports – Sports is Life* 💙⚽🏀
 
