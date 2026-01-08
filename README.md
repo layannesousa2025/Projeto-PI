@@ -1,89 +1,95 @@
-📝 Descrição Geral
+# 🏆 ChampionsSports – Sports is Life
 
-O ChampionsSports é um ecossistema de aplicações integradas — Web, Mobile e Desktop — desenvolvido para oferecer aos usuários uma experiência completa e centralizada no universo esportivo.
+## 📝 Descrição Geral
+
+O **ChampionsSports** é um ecossistema de aplicações integradas — **Web, Mobile e Desktop** — desenvolvido para oferecer aos usuários uma experiência completa e centralizada no universo esportivo.
 
 A plataforma possibilita:
 
-Seleção de esportes favoritos
+* ✅ Seleção de esportes favoritos
+* 📂 Visualização de categorias e eventos esportivos
+* 📍 Localização inteligente de atividades esportivas próximas
+* 📅 Acesso a treinos, eventos futuros e informações relevantes
 
-Visualização de categorias e eventos esportivos
+O projeto contempla todo o fluxo do usuário, desde a navegação e pesquisa até a interação com funcionalidades personalizadas, proporcionando uma experiência **intuitiva, eficiente e centralizada**.
 
-Localização inteligente de atividades próximas
+---
 
-Acesso a treinos, eventos futuros e informações relevantes
+## 🏆 Principais Funcionalidades
 
-O projeto contempla todo o fluxo do usuário, desde a navegação e pesquisa até a interação com funcionalidades personalizadas, proporcionando uma experiência intuitiva e eficiente.
+### 🔐 Autenticação e Gestão de Usuários
 
-🏆 Principais Funcionalidades (Front-end & Back-end)
-🔐 Autenticação e Gestão de Usuários
+* Cadastro de usuários
+* Login seguro
+* Recuperação de conta
+* Edição de dados pessoais
 
-Cadastro de usuários
+### 🔎 Navegação e Descoberta
 
-Login seguro
+* Sistema de busca com filtros
+* Gerenciamento de esportes e eventos favoritos
+* Visualização de categorias esportivas
+* Localizador de atividades esportivas próximas
 
-Recuperação de conta
+---
 
-Edição de dados pessoais
+## ⚠️ Problema Identificado
 
-🔎 Navegação e Descoberta
+Devido à rotina acelerada e à falta de centralização de informações esportivas, muitos usuários enfrentam dificuldades para encontrar **atividades, eventos e torneios adequados**.
 
-Sistema de busca com filtros
+O **ChampionsSports – Sports is Life** resolve esse problema ao oferecer:
 
-Gerenciamento de favoritos
+* 📍 Localização automática de eventos próximos
+* 🗂️ Informações organizadas em um único ambiente
+* ⚡ Uma experiência rápida, intuitiva e personalizada
 
-Visualização de categorias e eventos
+---
 
-Localizador de atividades esportivas próximas
+## 🎯 Objetivos do Projeto
 
-⚠️ Problema Identificado
+* Facilitar a escolha de esportes
+* Simplificar a busca por eventos esportivos
+* Dar visibilidade a torneios e competições locais
+* Aproximar atletas, equipes e organizadores
 
-Devido à rotina acelerada e à falta de centralização de informações esportivas, muitos usuários enfrentam dificuldades para encontrar atividades, eventos e torneios adequados.
+---
 
-O ChampionsSports – Sports is Life resolve esse problema ao oferecer:
+## 🛠️ Desenvolvimento
 
-Localização automática de eventos próximos
+### 🔧 Backend
 
-Informações organizadas em um único ambiente
+* Gerenciamento de usuários e conteúdos
+* Integração com banco de dados **MySQL**
+* Implementação de regras de negócio
+* Segurança e controle de acesso
 
-Uma experiência rápida, intuitiva e personalizada
+### 🎨 Frontend
 
-🎯 Objetivos do Projeto
+Interfaces intuitivas e responsivas desenvolvidas para:
 
-Facilitar a escolha de esportes
+* 🌐 Web
+* 📱 Mobile
+* 🖥️ Desktop
 
-Simplificar a busca por eventos esportivos
+---
 
-Dar visibilidade a torneios e competições locais
+## 🚀 Implantação e Manutenção
 
-Aproximar atletas, equipes e organizadores
+* Desenvolvimento Mobile realizado com **Android Studio**
+* Atualmente, o projeto encontra-se disponível nas versões:
 
-🛠️ Desenvolvimento
-🔧 Backend
+  * 🌐 Web
+  * 🖥️ Desktop
 
-Gerenciamento de usuários e conteúdos
+---
 
-Integração com banco de dados MySQL
+## 👩‍💻 Autora
 
-Implementação de regras de negócio
+**Layanne Sousa**
+Técnica em Análise e Desenvolvimento de Sistemas
+Foco em Qualidade de Software (QA), Automação de Testes e Inteligência Artificial aplicada à qualidade
 
-Segurança e controle de acesso
+---
 
-🎨 Frontend
+> *ChampionsSports – Sports is Life* 💙⚽🏀
 
-Interfaces intuitivas e responsivas para:
-
-Web
-
-Mobile
-
-Desktop
-
-🚀 Implantação e Manutenção
-
-Desenvolvimento Mobile realizado com Android Studio
-
-Atualmente, o projeto encontra-se disponível nas versões:
-
-Web
-
-Desktop
