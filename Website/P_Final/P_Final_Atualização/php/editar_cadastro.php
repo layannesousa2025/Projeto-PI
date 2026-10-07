@@ -3,7 +3,7 @@ session_start();
  
 // 1. VERIFICAÇÃO DE LOGIN
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || !isset($_SESSION['id'])) {
-    header('Location: ../html/login.html');
+    header('Location: login.php');
     exit;
 }
 
@@ -112,18 +112,137 @@ try {
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <?php require_once __DIR__ . '/tailwind.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Cadastro</title>
-    <link rel="stylesheet" href="../Css/editar_cadastro.css">
+    <title>Editar cadastro - ChampionsSports</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --page-bg: #11111f;
+            --surface: #1d1d31;
+            --surface-soft: #26263d;
+            --text: #f8f9fa;
+            --muted: #b8b8c9;
+            --primary: #6e00ff;
+            --secondary: #ff00aa;
+        }
+
+        * { box-sizing: border-box; }
+        html { min-width: 320px; }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 34px 16px;
+            background:
+                radial-gradient(ellipse at 80% 8%, rgba(110, 0, 255, .2), transparent 38rem),
+                var(--page-bg);
+            color: var(--text);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .page-wrap { width: min(100%, 620px); margin: 0 auto; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin: 0 0 20px 4px;
+            color: var(--muted);
+            font-size: .92rem;
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+
+        .back-link:hover { color: #ff8bd5; }
+
+        .form-container {
+            padding: clamp(24px, 6vw, 42px);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 22px;
+            background: linear-gradient(145deg, rgba(38, 38, 61, .98), rgba(29, 29, 49, .98));
+            box-shadow: 0 24px 70px rgba(0, 0, 0, .36);
+        }
+
+        .form-container h1 {
+            margin: 0 0 8px;
+            font-size: clamp(1.8rem, 5vw, 2.3rem);
+            line-height: 1.2;
+            letter-spacing: -.035em;
+        }
+
+        .form-intro { margin: 0 0 26px; color: var(--muted); line-height: 1.6; }
+        .form-group { display: grid; gap: 8px; margin-bottom: 19px; }
+
+        .form-group label { color: #e8e8f1; font-size: .92rem; font-weight: 600; }
+
+        .form-group input {
+            width: 100%;
+            min-height: 48px;
+            padding: 11px 14px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            border-radius: 10px;
+            outline: none;
+            background: rgba(255, 255, 255, .07);
+            color: var(--text);
+            font: inherit;
+            transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+
+        .form-group input:focus { border-color: var(--secondary); background: rgba(255, 255, 255, .1); box-shadow: 0 0 0 3px rgba(255, 0, 170, .16); }
+        .form-group input:disabled { border-color: rgba(255, 255, 255, .08); background: rgba(255, 255, 255, .035); color: #a7a7b8; cursor: not-allowed; }
+        .form-group input::placeholder { color: #9999ae; }
+
+        .form-hint { margin: -12px 0 19px; color: var(--muted); font-size: .84rem; line-height: 1.5; }
+
+        .mensagem {
+            margin: 0 0 20px;
+            padding: 13px 15px;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            font-size: .92rem;
+            line-height: 1.5;
+        }
+
+        .mensagem.sucesso { border-color: rgba(74, 222, 128, .35); background: rgba(34, 197, 94, .1); color: #bbf7d0; }
+        .mensagem.erro { border-color: rgba(248, 113, 113, .35); background: rgba(239, 68, 68, .1); color: #fecaca; }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            min-height: 50px;
+            margin-top: 6px;
+            padding: 12px 18px;
+            border: 0;
+            border-radius: 10px;
+            background: linear-gradient(110deg, var(--primary), var(--secondary));
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: filter .2s ease, transform .2s ease;
+        }
+
+        .submit-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+        .submit-btn:focus-visible, .back-link:focus-visible { outline: 3px solid rgba(255, 0, 170, .55); outline-offset: 3px; }
+
+        @media (max-width: 420px) {
+            body { padding: 22px 12px; }
+            .form-container { border-radius: 17px; }
+        }
+    </style>
 </head>
 <body>
-    <div class="voltar" onclick="window.location.href='../index.php'">
-        <a href="../index.php"><img src="../img/button (2).png" alt="Botão voltar"></a>
-    </div>
+    <main class="page-wrap">
+        <a href="usuario.php" class="back-link">
+            <span aria-hidden="true">&larr;</span>
+            Voltar ao perfil
+        </a>
 
     <form action="editar_cadastro.php" method="POST" class="form-container">
         <h1>Editar Cadastro</h1>
+        <p class="form-intro">Atualize seus dados. Deixe a senha em branco se não quiser alterá-la.</p>
 
         <?php if ($mensagem_sucesso): ?>
             <div class="mensagem sucesso"><?php echo htmlspecialchars($mensagem_sucesso); ?></div>
@@ -159,11 +278,12 @@ try {
 
         <div class="form-group">
             <label for="nova_senha">Nova Senha (deixe em branco para não alterar)</label>
-            <input type="password" id="nova_senha" name="nova_senha" placeholder="Mínimo 6 caracteres">
+            <input type="password" id="nova_senha" name="nova_senha" placeholder="Mínimo 6 caracteres" minlength="6" autocomplete="new-password">
         </div>
 
         <button type="submit" class="submit-btn">Salvar Alterações</button>
     </form>
+    </main>
 
 </body>
 </html>

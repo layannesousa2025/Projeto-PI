@@ -1,6 +1,13 @@
 const qInput = document.getElementById('q');
 const gameSelect = document.getElementById('game');
 
+function normalizeCategory(value) {
+    return value
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase();
+}
+
 // Mapeamento de categorias para imagens
 const categoryImageMap = {
     'Futebol': '../img/jogador.png',
@@ -80,7 +87,9 @@ function updateGrid(lista) {
         const dataFormatada = new Date(ev.data_eventos + 'T00:00:00').toLocaleDateString('pt-BR');
 
         // Obtém a imagem da categoria, ou uma imagem padrão se não encontrada
-        const categoryImgSrc = categoryImageMap[ev.categorias_esportes] || '../img/default_category.png'; // Assumindo uma imagem padrão
+        const categoryImgSrc = Object.entries(categoryImageMap)
+            .find(([category]) => normalizeCategory(category) === normalizeCategory(ev.categorias_esportes))?.[1]
+            || '../img/rodas.png';
 
         card.innerHTML = `
             <div class="event-content">
@@ -145,7 +154,7 @@ function aplicarFiltros() {
         // CORREÇÃO: Filtrar usando os nomes de campos corretos
         const nomeLocal = `${ev.tipo_eventos} ${ev.localizacao}`.toLowerCase();
         if (q && !nomeLocal.includes(q)) return false; 
-        if (game && ev.categorias_esportes !== game) return false;
+        if (game && normalizeCategory(ev.categorias_esportes) !== normalizeCategory(game)) return false;
         if (from && ev.data_eventos < from) return false;
         if (to && ev.data_eventos > to) return false;
         return true;
@@ -161,7 +170,9 @@ function aplicarFiltroInicialDaURL() {
     const params = new URLSearchParams(window.location.search);
     const gameFromURL = params.get('game');
     if (gameFromURL) {
-        gameSelect.value = gameFromURL;
+        const matchingOption = Array.from(gameSelect.options)
+            .find(option => normalizeCategory(option.value) === normalizeCategory(gameFromURL));
+        if (matchingOption) gameSelect.value = matchingOption.value;
     }
 }
 

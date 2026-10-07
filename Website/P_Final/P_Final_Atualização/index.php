@@ -34,8 +34,6 @@ session_start(); // Inicia a sessão para verificar o login
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="./Css/footer.css">
-
   <style>
     :root {
       --primary: #6e00ff;
@@ -168,28 +166,139 @@ session_start(); // Inicia a sessão para verificar o login
       border-radius: 0 50px 50px 0;
       background: linear-gradient(to right, var(--primary), var(--secondary));
     }
+    .chatbot-maintenance {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 1rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(255, 193, 7, 0.4);
+      border-radius: 10px;
+      background: rgba(255, 193, 7, 0.1);
+      color: #ffe8a3;
+      text-align: left;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .chatbot-maintenance i {
+      margin-top: 0.15rem;
+      color: #ffd166;
+    }
+    .chatbot-input-field:disabled,
+    .chatbot-send-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
 
     /* Gradient button helper */
     .btn-gradient {
       background: linear-gradient(to right, var(--primary), var(--secondary));
     }
 
-    /* Mantém o rodapé visualmente alinhado ao da página de contato */
     #contact {
-      background: rgba(141, 152, 235, 0.15);
+      width: 100%;
+      padding: 2.5rem max(1.5rem, calc((100vw - 1200px) / 2)) 0;
+      background: #23233b;
+      color: #f8f9fa;
     }
+
+    #contact .footer-content {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     #contact .footer-columns {
-      gap: 2rem;
-      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.35fr 0.7fr;
+      gap: 2.5rem;
+      margin: 0 0 2rem;
     }
+
+    #contact .footer-columns > div {
+      min-width: 0;
+    }
+
+    #contact .footer-columns h4 {
+      margin: 0 0 1rem;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    #contact .footer-about p,
+    #contact .footer-columns li {
+      color: #c4c4d2;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    #contact .footer-about p {
+      max-width: 330px;
+      margin: 0;
+    }
+
+    #contact .footer-columns ul {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #contact .footer-columns a {
+      color: #c4c4d2;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+      transition: color 0.2s ease;
+    }
+
     #contact .footer-links a:hover,
     #contact .footer-contact a:hover {
-      color: #fff;
-      padding-left: 0;
+      color: #ff70cf;
       text-decoration: underline;
     }
+
+    #contact .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: start;
+      gap: 0.9rem;
+    }
+
+    #contact .footer-social h4 {
+      width: 100%;
+    }
+
+    #contact .footer-social a {
+      display: inline-flex;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 1.05rem;
+      transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
     #contact .footer-social a:hover {
-      color: #ff9800;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transform: translateY(-2px);
+    }
+
+    #contact .footer-bottom {
+      padding: 1.1rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      text-align: center;
+    }
+
+    #contact .copyright {
+      margin: 0;
+      color: #aaaabd;
+      font-size: 0.82rem;
     }
 
     html, body {
@@ -236,6 +345,10 @@ session_start(); // Inicia a sessão para verificar o login
       }
       .hero h1 {
         font-size: clamp(2.3rem, 7vw, 4rem);
+      }
+      #contact .footer-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem;
       }
     }
 
@@ -296,6 +409,12 @@ session_start(); // Inicia a sessão para verificar o login
         transform: translateX(50%);
       }
       .slide-content { padding-bottom: 4rem; }
+      #contact {
+        padding: 2rem 1.25rem 0;
+      }
+      #contact .footer-columns {
+        gap: 1.5rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -332,6 +451,13 @@ session_start(); // Inicia a sessão para verificar o login
       .indicator { width: 10px; height: 10px; }
       #events-grid {
         grid-template-columns: 1fr !important;
+      }
+      #contact .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      #contact .footer-about p {
+        max-width: none;
       }
     }
   </style>
@@ -373,11 +499,11 @@ session_start(); // Inicia a sessão para verificar o login
       </a>
     <?php else: ?>
       <div class="desktop-auth flex gap-4 ml-auto z-[1002]">
-        <a href="./html/login.html" class="no-underline inline-block px-5 py-2 rounded-[25px] font-semibold text-base transition-all duration-300 bg-transparent border-2 border-[#f8f9fa] text-white hover:bg-[#f8f9fa] hover:text-[#1a1a2e]">Acessar</a>
-        <a href="./html/cadastro.html" class="no-underline inline-block px-5 py-2 rounded-[25px] font-semibold text-base transition-all duration-300 text-white hover:scale-105"
+        <a href="./php/login.php" class="no-underline inline-block px-5 py-2 rounded-[25px] font-semibold text-base transition-all duration-300 bg-transparent border-2 border-[#f8f9fa] text-white hover:bg-[#f8f9fa] hover:text-[#1a1a2e]">Acessar</a>
+        <a href="./php/cadastro_usuario.php" class="no-underline inline-block px-5 py-2 rounded-[25px] font-semibold text-base transition-all duration-300 text-white hover:scale-105"
            style="background:linear-gradient(135deg,#6e00ff,#ff00aa);box-shadow:0 4px 10px rgba(0,0,0,0.3)">Cadastrar</a>
       </div>
-      <a href="./html/login.html" class="mobile-user-icon" aria-label="Fazer login">
+      <a href="./php/login.php" class="mobile-user-icon" aria-label="Fazer login">
         <i class="fa-solid fa-user"></i>
       </a>
     <?php endif; ?>
@@ -551,14 +677,19 @@ session_start(); // Inicia a sessão para verificar o login
              style="background:linear-gradient(to right,#6e00ff,#ff00aa)">
           ChampionsSports
         </div>
+        <div class="chatbot-maintenance" role="status" aria-live="polite">
+          <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+          <span>O assistente virtual está em manutenção no momento. Tente novamente mais tarde.</span>
+        </div>
         <div class="h-[300px] overflow-y-auto p-4 text-left" id="chatbot-messages">
-          <div class="message bot-message mb-4 max-w-[80%] bg-[#3d3d5a] text-white p-3 rounded-[10px_10px_10px_0]">Fale com Assistente Virtual...</div>
+          <div class="message bot-message mb-4 max-w-[80%] bg-[#3d3d5a] text-white p-3 rounded-[10px_10px_10px_0]">Estamos trabalhando para melhorar o assistente. Agradecemos sua compreensão.</div>
         </div>
         <div class="flex p-4 border-t border-[#3d3d5a]">
-          <input type="text" placeholder="Digite sua mensagem..." id="user-input"
-                 class="chatbot-input-field flex-1 p-3 border-none outline-none bg-[#3d3d5a] text-white">
+          <input type="text" placeholder="Assistente temporariamente indisponível" id="user-input" disabled
+                 class="chatbot-input-field flex-1 p-3 border-none outline-none bg-[#3d3d5a] text-white"
+                 aria-label="Assistente temporariamente indisponível">
           <button id="send-btn"
-                  class="chatbot-send-btn px-6 text-white border-none cursor-pointer font-bold">Enviar</button>
+                  class="chatbot-send-btn px-6 text-white border-none cursor-pointer font-bold" disabled>Enviar</button>
         </div>
       </div>
     </div>
@@ -587,9 +718,9 @@ session_start(); // Inicia a sessão para verificar o login
         <div class="footer-contact">
           <h4>Contato</h4>
           <ul>
-            <li><i class="fas fa-envelope"></i> <a href="mailto:contato@example.com">contato@example.com</a></li>
-            <li><i class="fas fa-phone"></i> <a href="tel:+5500000000000">+55 (00) 00000-0000</a></li>
-            <li><i class="fas fa-map-marker-alt"></i> Atendimento online</li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:contato@ChampionsSports.com">contato@ChampionsSports.com</a></li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+5561999999999">(61) 99999-9999</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> QNL-5657575 - Taguatinga, Brasília-DF</li>
           </ul>
         </div>
 
@@ -601,12 +732,11 @@ session_start(); // Inicia a sessão para verificar o login
       </div>
 
       <div class="footer-bottom">
-        <p class="copyright">© 2025 ChampionsSports. Todos os direitos reservados.</p>
+        <p class="copyright">© <?= date('Y') ?> ChampionsSports. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <script src="./Js/assistenteV.js"></script>
   <script src="./Js/carrosel.js"></script>
   <script src="teste.js"></script>
 </body>

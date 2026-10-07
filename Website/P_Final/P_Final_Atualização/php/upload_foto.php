@@ -3,7 +3,7 @@ session_start();
 
 // 1. Verificação de login, garantindo que o ID do usuário exista na sessão.
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || !isset($_SESSION['id'])) {
-    header('Location: ../html/login.html');
+    header('Location: login.php');
     exit;
 }
 

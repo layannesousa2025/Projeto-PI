@@ -23,7 +23,7 @@ try {
 // Verifica se o ID do usuário recém-cadastrado está na sessão
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     // Se não estiver logado, redireciona para a página de login
-    header("Location: ../html/login.html");
+    header("Location: login.php");
     exit;
 }
 
@@ -70,6 +70,7 @@ $conn->close();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php require_once __DIR__ . '/tailwind.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Endereço</title>

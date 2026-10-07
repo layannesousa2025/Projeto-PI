@@ -35,6 +35,17 @@ outros TINYINT(1) NOT NULL DEFAULT 0 ,
 id_cadastro_usuario INT NOT NULL,
 FOREIGN KEY (id_cadastro_usuario) REFERENCES cadastro_usuario(id_cadastro_usuario));
 
+CREATE TABLE IF NOT EXISTS recuperacao_senha(
+id_recuperacao INT PRIMARY KEY AUTO_INCREMENT,
+id_cadastro_usuario INT NOT NULL,
+token_hash CHAR(64) NOT NULL UNIQUE,
+expira_em DATETIME NOT NULL,
+usado_em DATETIME NULL DEFAULT NULL,
+criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+INDEX idx_recuperacao_usuario_criado (id_cadastro_usuario, criado_em),
+FOREIGN KEY (id_cadastro_usuario) REFERENCES cadastro_usuario(id_cadastro_usuario)
+);
+
 
 CREATE TABLE IF NOT EXISTS endereco(
 id_endereco INT PRIMARY KEY AUTO_INCREMENT,
@@ -82,13 +93,13 @@ VALUES('Admin','$2y$10$Bv9CAvX5pBI7zGN3GbfYaeduU558SNWvYrOfOrZmTdcBz4n6Pt7t2','A
 
 
 INSERT INTO cadastro_usuario(nome,cpf,data_nascimento,telefone,email,id_login)
-VALUES('Usuário Exemplo','000.000.000-00','2000-01-01','00 000000000','usuario@example.com',1);
+VALUES('Usuário Exemplo','000.000.000-00','2000-01-01','(00) 00000-0000','usuario@example.com',1);
 
 INSERT INTO categoria(ciclismo,futebol,voleibol,academia,caminhada,natacao,lazer,pcd,favoritos,id_cadastro_usuario)
 VALUES(0,0,0,0,0,0,0,0,0,1);
 
 INSERT INTO endereco(cep,rua,bairro,cidade,uf,id_cadastro_usuario)
-VALUES('00000000','Rua de Exemplo','Bairro Exemplo','Cidade Exemplo','DF',1);
+VALUES('00000-000','Rua Exemplo','Bairro Exemplo','Cidade Exemplo','EX',1);
 
 INSERT INTO eventos(tipo_eventos,categorias_esportes,localizacao,data_eventos,informacao,link_localizacao,id_categoria)
 VALUES('Futebol','Futebol','Recanto Das Emas','2025-10-29','Tipo de Evento: Gratuito
