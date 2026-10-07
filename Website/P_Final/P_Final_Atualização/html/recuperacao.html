@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar Senha</title>
+  <link rel="stylesheet" href="../Css/recuperacao.css">
+</head>
+
+<body>
+  <div class="voltar">
+    <a href="../index.php"><img src="../img/button (2).png" alt="Botão voltar"></a>
+  </div>
+
+  <div class="container">
+    <h2>Recuperar Senha</h2>
+    <p>Digite seu e-mail para receber o link de redefinição.</p>
+
+    <!-- adicionei o onsubmit para chamar a função -->
+    <form onsubmit="return recuperarSenha(event)">
+      <!-- adicionei o id="email" para capturar no JS -->
+      <input type="email" id="email" placeholder="Seu e-mail" required>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <a href="login.php">Voltar ao login</a>
+  </div>
+</body>
+
+<script>
+  function recuperarSenha(event) {
+    event.preventDefault(); // impede o envio real do formulário
+
+    const email = document.getElementById("email").value;
+
+    if (email === "") {
+      alert("Por favor, digite seu e-mail.");
+    } else {
+      alert("Um link de recuperação foi enviado para: " + email);
+
+    }
+  }
+</script>
+
+</html>
