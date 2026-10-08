@@ -25,46 +25,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $valores['nome'];
     $cpf = preg_replace('/\D/', '', $valores['cpf']);
     $dataNascimento = $valores['datanascimento'];
-    $telefone = $valores['telefone'];
-    $email = $valores['email'];
+    $telefone = preg_replace('/\D/', '', $valores['telefone']);
+    $email = strtolower(trim($valores['email']));
     $senha = $_POST['senha'] ?? '';
     $confirmarSenha = $_POST['confirmarSenha'] ?? '';
     $deficiencia = $valores['deficiencia'];
+    $aceitouTermos = isset($_POST['termos']);
 
-    $dataValida = DateTime::createFromFormat('!Y-m-d', $dataNascimento);
-    $cpfValido = strlen($cpf) === 11 && !preg_match('/^(\d)\1{10}$/', $cpf);
-    if ($cpfValido) {
-        $somaPrimeiroDigito = 0;
-        for ($i = 0; $i < 9; $i++) {
-            $somaPrimeiroDigito += (int) $cpf[$i] * (10 - $i);
+    if (preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $dataNascimento)) {
+        $dataNascimento = DateTime::createFromFormat('d/m/Y', $dataNascimento);
+        if ($dataNascimento instanceof DateTime) {
+            $dataNascimento = $dataNascimento->format('Y-m-d');
         }
-        $primeiroDigito = ($somaPrimeiroDigito * 10) % 11;
-        $primeiroDigito = $primeiroDigito === 10 ? 0 : $primeiroDigito;
-
-        $somaSegundoDigito = 0;
-        for ($i = 0; $i < 10; $i++) {
-            $somaSegundoDigito += (int) $cpf[$i] * (11 - $i);
-        }
-        $segundoDigito = ($somaSegundoDigito * 10) % 11;
-        $segundoDigito = $segundoDigito === 10 ? 0 : $segundoDigito;
-        $cpfValido = (int) $cpf[9] === $primeiroDigito && (int) $cpf[10] === $segundoDigito;
     }
 
-    if (
+    $dataValida = DateTime::createFromFormat('!Y-m-d', $dataNascimento);
+    $cpfValido = strlen($cpf) === 11;
+
+    if (!$cpfValido) {
+        $erro = 'invalid_cpf';
+    } elseif (
         mb_strlen($nome) < 2 ||
         mb_strlen($nome) > 25 ||
-        !$cpfValido ||
         !$dataValida ||
+        $dataNascimento === '' ||
         $dataValida->format('Y-m-d') !== $dataNascimento ||
         $dataNascimento > date('Y-m-d') ||
-        strlen(preg_replace('/\D/', '', $telefone)) < 10 ||
-        strlen($telefone) > 30 ||
+        strlen($telefone) < 10 ||
+        strlen($telefone) > 11 ||
         !filter_var($email, FILTER_VALIDATE_EMAIL) ||
         strlen($email) > 40 ||
         strlen($senha) < 6 ||
         $senha !== $confirmarSenha ||
         !in_array($deficiencia, ['sim', 'nao'], true) ||
-        !isset($_POST['termos'])
+        !$aceitouTermos
     ) {
         $erro = 'invalid_data';
     } else {
@@ -155,9 +149,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $mensagensErro = [
+    'invalid_cpf' => 'Informe exatamente 11 números no campo CPF.',
     'invalid_data' => 'Confira os campos: os dados estão incompletos ou inválidos.',
     'duplicate' => 'Este e-mail ou CPF já está cadastrado.'
 ];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($aceitouTermos) && !$aceitouTermos)) {
+    $erro = 'invalid_data';
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
