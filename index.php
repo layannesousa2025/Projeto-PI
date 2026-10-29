@@ -301,34 +301,44 @@ session_start(); // Inicia a sessão para verificar o login
       font-size: 0.82rem;
     }
 
-    html, body {
-      overflow-x: hidden;
-      max-width: 100%;
+    /* Auth buttons header */
+    .header-auth {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-left: auto;
+      z-index: 1002;
+      flex-shrink: 0;
     }
-
-    body {
-      min-width: 320px;
-    }
-
-    .mobile-user-icon {
-      display: none;
-      position: fixed;
-      top: 1.05rem;
-      right: 1rem;
-      width: 2.8rem;
-      height: 2.8rem;
-      border-radius: 999px;
-      border: 2px solid rgba(255,255,255,0.9);
-      background: linear-gradient(135deg, rgba(110,0,255,0.9), rgba(255,0,170,0.9));
-      color: #fff;
+    .header-btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      z-index: 1002;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 1rem;
       text-decoration: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      line-height: 1.25;
     }
-    .mobile-user-icon i {
-      font-size: 1.1rem;
+    .header-btn-outline {
+      background: transparent;
+      border: 2px solid #f8f9fa;
+      color: #fff;
+    }
+    .header-btn-outline:hover {
+      background: #f8f9fa;
+      color: #1a1a2e;
+    }
+    .header-btn-solid {
+      background: linear-gradient(135deg, #6e00ff, #ff00aa);
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .header-btn-solid:hover {
+      transform: scale(1.05);
     }
 
     /* Responsive: hide desktop nav on mobile */
@@ -354,32 +364,41 @@ session_start(); // Inicia a sessão para verificar o login
 
     @media (max-width: 768px) {
       header {
-        min-height: 72px;
-        padding: 0.85rem 0.9rem;
+        min-height: 64px;
+        padding: 0.75rem 0.9rem;
       }
       header > a {
-        margin-left: 0;
-        margin-right: auto;
+        margin: 0;
         gap: 0.5rem;
-        font-size: 1.15rem;
-        max-width: calc(100% - 4.5rem);
+        font-size: 1.1rem;
+        min-width: 0;
+        flex-shrink: 1;
       }
       header > a p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+        white-space: nowrap;
       }
       header > a img {
-        width: 38px;
-        height: 38px;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
       }
+      .header-auth,
       .desktop-auth {
-        display: none !important;
+        display: flex !important;
+        align-items: center;
+        gap: 0.45rem;
+        flex-shrink: 0;
+        margin-left: auto;
       }
-      .mobile-user-icon {
-        display: none !important;
+      .header-btn {
+        padding: 0.38rem 0.8rem;
+        font-size: 0.82rem;
+        border-width: 1.5px;
       }
       .hero {
         min-height: auto;
-        padding-top: 7rem;
+        padding-top: 6.5rem;
       }
       .hero h1 {
         line-height: 1.08;
@@ -422,19 +441,34 @@ session_start(); // Inicia a sessão para verificar o login
         font-size: 15px;
       }
       header {
-        padding-top: 0.8rem;
-        padding-bottom: 0.8rem;
+        min-height: 58px;
+        padding: 0.65rem 0.65rem;
       }
       header > a {
-        margin-left: 0;
         gap: 0.35rem;
+      }
+      header > a p {
+        font-size: 0.92rem;
+      }
+      header > a img {
+        width: 32px;
+        height: 32px;
+      }
+      .header-auth,
+      .desktop-auth {
+        gap: 0.35rem;
+      }
+      .header-btn {
+        padding: 0.32rem 0.62rem;
+        font-size: 0.75rem;
       }
       .hero {
         padding-left: 0.75rem;
         padding-right: 0.75rem;
+        padding-top: 5.5rem;
       }
       .hero h1 {
-        font-size: clamp(2rem, 9vw, 2.8rem);
+        font-size: clamp(1.9rem, 8.5vw, 2.6rem);
       }
       .hero p {
         font-size: 0.95rem;
@@ -458,6 +492,27 @@ session_start(); // Inicia a sessão para verificar o login
       }
       #contact .footer-about p {
         max-width: none;
+      }
+    }
+
+    @media (max-width: 360px) {
+      header {
+        padding: 0.5rem 0.45rem;
+      }
+      header > a p {
+        font-size: 0.82rem;
+      }
+      header > a img {
+        width: 28px;
+        height: 28px;
+      }
+      .header-auth,
+      .desktop-auth {
+        gap: 0.25rem;
+      }
+      .header-btn {
+        padding: 0.28rem 0.45rem;
+        font-size: 0.68rem;
       }
     }
   </style>
@@ -489,23 +544,23 @@ session_start(); // Inicia a sessão para verificar o login
 
     <!-- Botões login/logout -->
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-      <div class="desktop-auth flex gap-4 ml-auto z-[1002]">
-        <a href="./php/usuario.php" class="no-underline px-5 py-2 rounded-[25px] font-semibold text-base transition-all duration-300 text-white hover:scale-105"
-           style="background:linear-gradient(135deg,#6e00ff,#ff00aa);box-shadow:0 4px 10px rgba(0,0,0,0.3)"><?php echo htmlspecialchars($_SESSION['nome']); ?></a>
-        <a href="./php/logout.php" class="no-underline px-5 py-2 rounded-[25px] font-semibold text-base transition-all duration-300 bg-transparent border-2 border-[#f8f9fa] text-white hover:bg-[#f8f9fa] hover:text-[#1a1a2e]">Sair</a>
+      <div class="header-auth desktop-auth flex items-center gap-2 sm:gap-4 ml-auto z-[1002]">
+        <a href="./php/usuario.php" class="header-btn header-btn-solid truncate max-w-[110px] sm:max-w-none">
+          <?php echo htmlspecialchars($_SESSION['nome']); ?>
+        </a>
+        <a href="./php/logout.php" class="header-btn header-btn-outline">
+          Sair
+        </a>
       </div>
-      <a href="./php/usuario.php" class="mobile-user-icon" aria-label="Ir para o perfil">
-        <i class="fa-solid fa-user"></i>
-      </a>
     <?php else: ?>
-      <div class="desktop-auth flex gap-4 ml-auto z-[1002]">
-        <a href="./php/login.php" class="no-underline inline-block px-5 py-2 rounded-[25px] font-semibold text-base transition-all duration-300 bg-transparent border-2 border-[#f8f9fa] text-white hover:bg-[#f8f9fa] hover:text-[#1a1a2e]">Acessar</a>
-        <a href="./php/cadastro_usuario.php" class="no-underline inline-block px-5 py-2 rounded-[25px] font-semibold text-base transition-all duration-300 text-white hover:scale-105"
-           style="background:linear-gradient(135deg,#6e00ff,#ff00aa);box-shadow:0 4px 10px rgba(0,0,0,0.3)">Cadastrar</a>
+      <div class="header-auth desktop-auth flex items-center gap-2 sm:gap-4 ml-auto z-[1002]">
+        <a href="./php/login.php" class="header-btn header-btn-outline">
+          Entrar
+        </a>
+        <a href="./php/cadastro_usuario.php" class="header-btn header-btn-solid">
+          Cadastrar
+        </a>
       </div>
-      <a href="./php/login.php" class="mobile-user-icon" aria-label="Fazer login">
-        <i class="fa-solid fa-user"></i>
-      </a>
     <?php endif; ?>
   </header>
 
