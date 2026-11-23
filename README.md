@@ -82,7 +82,8 @@ Interfaces intuitivas e responsivas desenvolvidas para:
   * 🖥️ Desktop
 
 ---
-" Versão Atualizada... "
+
+## " Versão Atualizada... "
 
 ## Versão Desktop
 
