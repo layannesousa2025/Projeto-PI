@@ -86,3 +86,13 @@ Interfaces intuitivas e responsivas desenvolvidas para:
 
 > *ChampionsSports – Sports is Life* 💙⚽🏀
 
+## Versão Desktop
+
+A aplicação desktop está organizada na pasta [`Desktop/`](Desktop):
+
+- `Desktop/src/` — código-fonte da interface desktop
+- `Desktop/assets/` — imagens da aplicação
+- `Desktop/db_config.example.json` — modelo de configuração do banco
+- `Desktop/iniciar_sistema.bat` — inicializador no Windows
+- `Desktop/requirements.txt` — dependências Python
+
