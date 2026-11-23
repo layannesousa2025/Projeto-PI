@@ -96,3 +96,13 @@ A aplicação desktop está organizada na pasta [`Desktop/`](Desktop):
 - `Desktop/iniciar_sistema.bat` — inicializador no Windows
 - `Desktop/requirements.txt` — dependências Python
 
+## Versão Web
+
+A aplicação web está organizada na pasta [`Web/`](Web):
+
+- `Web/index.php` — página principal
+- `Web/php/` — páginas e integrações PHP
+- `Web/Js/` — scripts JavaScript
+- `Web/img/` — imagens da interface web
+- `Web/banco_de_dados/` — scripts SQL
+
