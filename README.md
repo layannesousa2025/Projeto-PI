@@ -83,9 +83,8 @@ Interfaces intuitivas e responsivas desenvolvidas para:
 
 ---
 
-## " Versão Atualizada... "
+## " 🛠️🔧Versão Atualizada... "
 
----
 ## Versão Desktop
 
 A aplicação desktop está organizada na pasta [`Desktop/`](Desktop):
