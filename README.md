@@ -1,4 +1,4 @@
-# 🏆 ChampionsSports – Sports is Life
+# 🏆 ChampionsSports – Sports is Life 
 
 ## 📝 Descrição Geral
 
@@ -82,9 +82,7 @@ Interfaces intuitivas e responsivas desenvolvidas para:
   * 🖥️ Desktop
 
 ---
-
-
-> *ChampionsSports – Sports is Life* 💙⚽🏀
+" Versão Atualizada... "
 
 ## Versão Desktop
 
