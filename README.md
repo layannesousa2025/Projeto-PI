@@ -96,6 +96,21 @@ A aplicação desktop está organizada na pasta [`Desktop/`](Desktop):
 - `Desktop/iniciar_sistema.bat` — inicializador no Windows
 - `Desktop/requirements.txt` — dependências Python
 
+### Preparar e entrar no Desktop
+
+1. Instale Python e MySQL.
+2. Crie o banco e as tabelas executando `Web/banco_de_dados/script_banco.sql` no MySQL.
+3. Na pasta `Desktop/`, copie `db_config.example.json` para `db_config.json` e informe os dados de conexão do seu MySQL.
+4. No terminal, dentro de `Desktop/`, instale as dependências e inicie o sistema:
+
+   ```powershell
+   py -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+   .\iniciar_sistema.bat
+   ```
+
+5. Na tela inicial, clique em **Criar conta** para cadastrar um usuário. Depois, entre com o **nome de usuário** e a **senha** cadastrados. A senha deve ter pelo menos 6 caracteres.
+
 ## Versão Web
 
 A aplicação web está organizada na pasta [`Web/`](Web):
@@ -106,3 +121,17 @@ A aplicação web está organizada na pasta [`Web/`](Web):
 - `Web/img/` — imagens da interface web
 - `Web/banco_de_dados/` — scripts SQL
 
+### Preparar e entrar no Web
+
+1. Instale PHP com suporte a MySQL e inicie o servidor MySQL.
+2. Crie o banco e as tabelas executando `Web/banco_de_dados/script_banco.sql` no MySQL.
+3. Copie `Web/php/config.example.php` para `Web/php/config.local.php` e preencha as credenciais do banco. Não publique esse arquivo.
+4. Inicie o servidor PHP a partir da pasta `Web/`:
+
+   ```sh
+   php -S localhost:8000
+   ```
+
+5. Acesse `http://localhost:8000` no navegador. Se ainda não tiver uma conta, escolha **Criar conta**; depois, entre com o **e-mail cadastrado** (ou o nome completo) e a **senha**.
+
+As versões Web e Desktop podem usar as mesmas contas quando estiverem configuradas para o mesmo banco de dados. No Web, o login aceita o identificador da conta (e-mail no cadastro Web) ou o nome completo. No Desktop, use o identificador da conta cadastrado: nome de usuário para contas criadas no Desktop ou e-mail para contas criadas no Web.
