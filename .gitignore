@@ -3,3 +3,7 @@
 # Local source archives; only the prepared project at the repository root belongs in main.
 /Atualiza*/
 /WebSite-Original (2024-2025)/
+db_config.json
+usuarios.json
+.venv/
+__pycache__/
